@@ -2,6 +2,8 @@
   width: 100vw;
   height: 100vh;
   position: relative;
+  font-family: "Sansita Swashed", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
   /* overflow-x: hidden; */
 }
 .darken {
@@ -12,8 +14,9 @@
   width: 100vw;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.618) 30%,
-    rgba(255, 255, 255, 0)
+    rgba(1, 1, 1, 0.9) 0%,
+    rgba(1, 1, 1, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
   );
   z-index: 1;
 }
@@ -42,8 +45,8 @@
   /* transform: translate(50%, 50%); */
   right: 5%;
   top: 30%;
-  height: 60vh;
-  width: 40vw;
+  height: 50vh;
+  width: 30vw;
   z-index: 2;
 }
 .content-info {
@@ -53,30 +56,23 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.824);
-  /* border: 3px solid var(--green); */
-  box-shadow: inset 0 0 8px 1px var(--red);
-  border-radius: 25px;
-  /* border-image-slice: 7 12 14 5; */
+  /* border-radius: 20px; */
+  background: rgba(255, 255, 255, 0.714);
+  box-shadow: inset 0 0 8px 1px var(--red), 0 0 8px 1px var(--red);
   animation: changeBorder 20s linear infinite;
   transition: all 0.5s ease-in;
   font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
     "Times New Roman", serif;
   font-size: 18px;
+  border: 10px solid rgba(0, 0, 0, 0.851);
+  border-bottom: 20px solid rgba(0, 0, 0, 0.851);
 }
 
 .content-info::before,
 .content-info::after {
-  content: " ";
-  position: absolute;
-  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.753);
-  background: rgba(0, 0, 0, 0.753);
-  right: 50%;
-  bottom: 2px;
-  height: 1px;
-  transform: translate(50%, 50%);
-  width: 100px;
-  z-index: 1;
+}
+.content-info::after {
+  left: -1px;
 }
 
 .info {
@@ -87,7 +83,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  color: white;
+  color: black;
   position: relative;
 }
 .info h3 {
@@ -107,79 +103,68 @@
 .description {
   z-index: 2;
   width: 75%;
+  font-size: 23px;
+  text-align: justify;
 }
 .info-button {
-  border: none;
-  border-radius: 15px;
-  background: black;
-  height: 40px;
-  color: white;
-  min-width: 120px;
-  max-width: 150px;
-  padding: 3px;
-  z-index: 2;
-  font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
+  font-family: "Sansita Swashed", Cambria, Cochin, Georgia, Times,
     "Times New Roman", serif;
-  font-size: 18px;
+  border: none;
+  background: black;
+  color: white;
+  font-size: 22px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  padding: 5px 10px;
   cursor: pointer;
 }
-.info-button0 {
-  box-shadow: inset 0 0 8px 1px var(--green);
-}
-.info-button1 {
-  box-shadow: inset 0 0 8px 1px var(--yellow);
-}
-.info-button2 {
-  box-shadow: inset 0 0 8px 1px var(--red);
-}
-.info-button0:hover {
-  box-shadow: inset 0 0 40px 20px var(--green);
-  animation: colorizeGreen 1s ease-in-out;
-}
-@keyframes colorizeGreen {
-  from {
-    box-shadow: inset 0 0 1px 1px var(--green);
+@keyframes underlineButton {
+  0% {
+    transform: translate3d(-100%, 0, 0);
   }
-  to {
-    box-shadow: inset 0 0 40px 20px var(--green);
+  33% {
+    transform: translate3d(100%, 0, 0);
+  }
+  67% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
   }
 }
-.info-button1:hover {
-  box-shadow: inset 0 0 40px 20px var(--yellow);
-  color: black;
-  animation: colorizeYellow 1s ease-in-out;
+.info-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--bg);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+  /* animation: underlineButton 2s linear infinite; */
 }
-@keyframes colorizeYellow {
-  from {
-    box-shadow: inset 0 0 1px 1px var(--yellow);
-  }
-  to {
-    box-shadow: inset 0 0 40px 20px var(--yellow);
-    color: black;
-  }
+.info-button::after {
+  opacity: 1;
+  transform: translate3d(-100%, 0, 0);
 }
-.info-button2:hover {
-  box-shadow: inset 0 0 40px 20px var(--red);
-  animation: colorizeRed 1s ease-in-out;
+
+.info-button:hover::after,
+.info-button:focus::after {
+  transform: translate3d(0, 0, 0);
 }
-@keyframes colorizeRed {
-  from {
-    box-shadow: inset 0 0 1px 1px var(--red);
-  }
-  to {
-    box-shadow: inset 0 0 40px 20px var(--red);
-  }
-}
+
 .pagination {
   position: absolute;
   height: 15px;
   width: 15px;
   border-radius: 50%;
   transform: translate(50%, 50%);
-  bottom: -7.5px;
+  bottom: -10px;
   right: 50%;
   cursor: pointer;
-  filter: grayscale(80%);
+  filter: grayscale(100%);
   z-index: 2;
   transition: all 0.5s ease-in;
 }

@@ -54,7 +54,11 @@ const Landing = () => {
       <div className="landing-content">
         <div
           className="content-info"
-          style={{ boxShadow: `inset 0 0 8px 1px ${color[index % 3]}` }}
+          style={{
+            boxShadow: `inset 0 0 100vh 2px ${
+              color[index % 3]
+            }, 5px 5px 10px 5px rgba(0,0,0,.6)`
+          }}
         >
           {index % 3 === 0 && (
             <div className="info">
@@ -69,7 +73,7 @@ const Landing = () => {
                 In the heart of Senegal, is our beautiful two floor house open
                 to anyone looking for a relaxing, luxarious vacation
               </div>
-              <button className={`info-button info-button${0}`}>
+              <button className={`info-button `} style={{ "--bg": color[0] }}>
                 {" "}
                 Book Now
               </button>
@@ -88,7 +92,7 @@ const Landing = () => {
                 In the heart of Senegal, is our beautiful two floor house open
                 to anyone looking for a relaxing, luxarious vacation
               </div>
-              <button className={`info-button info-button${1}`}>
+              <button className={`info-button`} style={{ "--bg": color[1] }}>
                 View Options
               </button>
             </div>
@@ -106,7 +110,7 @@ const Landing = () => {
                 In the heart of Senegal, is our beautiful two floor house open
                 to anyone looking for a relaxing, luxarious vacation
               </div>
-              <button className={`info-button info-button${2}`}>
+              <button className={`info-button `} style={{ "--bg": color[2] }}>
                 {" "}
                 See more{" "}
               </button>
@@ -117,7 +121,7 @@ const Landing = () => {
               key={idx}
               className={`pagination${index % 3 === idx ? " active" : ""}`}
               style={{
-                margin: `10px calc(-30px * ${idx - 1})`,
+                margin: `0 calc(-30px * ${idx - 1})`,
                 background: color
               }}
               onClick={() => {
