@@ -12,7 +12,7 @@ import "../../styles/landing.css";
 const images = [heroImage, landingHouse, demoHills];
 const color = ["#00853f", "#fdef42", "#e31b23"];
 
-const delay = 8000;
+const delay = 800000;
 const Landing = () => {
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
@@ -55,14 +55,11 @@ const Landing = () => {
         <div
           className="content-info"
           style={{
-            boxShadow: `inset 0 0 100vh 2px ${
-              color[index % 3]
-            }, 5px 5px 10px 5px rgba(0,0,0,.6)`
+            boxShadow: `inset 0 0 100px 10px rgba(255,255,255,.6), 5px 5px 10px 5px rgba(0,0,0,.6)`
           }}
         >
           {index % 3 === 0 && (
             <div className="info">
-              <h3>home</h3>
               <img
                 src={homeIll}
                 alt="home illustration"
@@ -71,7 +68,8 @@ const Landing = () => {
               <div className="description">
                 {" "}
                 In the heart of Senegal, is our beautiful two floor house open
-                to anyone looking for a relaxing, luxarious vacation
+                to anyone looking for a relaxing, luxarious vacation. View more
+                photos <u>here</u>
               </div>
               <button className={`info-button `} style={{ "--bg": color[0] }}>
                 {" "}
@@ -81,7 +79,6 @@ const Landing = () => {
           )}
           {index % 3 === 1 && (
             <div className="info">
-              <h3>travel</h3>
               <img
                 src={travelIll}
                 alt="travel illustration"
@@ -99,7 +96,6 @@ const Landing = () => {
           )}
           {index % 3 === 2 && (
             <div className="info">
-              <h3>cook</h3>
               <img
                 src={chefIll}
                 alt="cook illustration"
@@ -108,7 +104,7 @@ const Landing = () => {
               <div className="description">
                 {" "}
                 In the heart of Senegal, is our beautiful two floor house open
-                to anyone looking for a relaxing, luxarious vacation
+                to anyone looking for a relaxing, luxarious vacation.
               </div>
               <button className={`info-button `} style={{ "--bg": color[2] }}>
                 {" "}
