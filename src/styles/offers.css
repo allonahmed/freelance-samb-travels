@@ -1,0 +1,121 @@
+.offers-container {
+  margin-top: -25vh;
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 5vh;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto", Georgia, Times, "Times New Roman", serif;
+  z-index: 2;
+}
+.offers-container .offers-intro {
+  width: 70%;
+
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(248, 248, 248);
+}
+.offers-container h2 {
+  padding-top: 20px;
+  font-size: 28px;
+  font-family: "Satisfy", Georgia, "Times New Roman", Times, serif;
+  color: var(--green);
+}
+.offers-container h1 {
+  font-size: 50px;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+.offers-container p {
+  width: 50%;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: center;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-content: center;
+  grid-gap: 50px;
+  /* width: 100%; */
+  /* background: #000; */
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(248, 248, 248);
+  margin-top: 5vh;
+  height: 400px;
+  width: 300px;
+  border-radius: 15px;
+  position: relative;
+  transition: transform 0.5s ease-in;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.146);
+}
+.card:hover {
+  transform: translate(0, -10px);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.246);
+}
+
+.card img {
+  width: 180px;
+  height: 180px;
+}
+
+.offers-container .card h3 {
+  padding: 10px;
+  font-weight: 900;
+}
+.offers-container .card p {
+  font-size: 14px;
+  width: 90%;
+}
+.offers-container .card button {
+  width: fit-content;
+  position: absolute;
+  font-size: 18px;
+  bottom: 1vh;
+  padding: 5px 5px;
+  border: none;
+  background: none;
+  color: var(--green);
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.offers-container .underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--green);
+  opacity: 1;
+  transition: opacity 300ms, transform 300ms;
+}
+.offers-container .underline:hover::after {
+  animation: underlineButton 2s linear infinite;
+}
+@keyframes underlineButton {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  33% {
+    transform: translate3d(100%, 0, 0);
+  }
+  67% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}

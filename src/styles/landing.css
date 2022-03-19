@@ -1,185 +1,192 @@
 .landing {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: relative;
-  /* overflow-x: hidden; */
+  font-family: "Sansita Swashed", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
 }
 .darken {
   position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.618) 30%,
-    rgba(255, 255, 255, 0)
+    rgba(1, 1, 1, 0.9) 0%,
+    rgba(1, 1, 1, 0.3) 70%,
+    rgba(1, 1, 1, 0) 100%
   );
   z-index: 1;
 }
 .landing-slide-container {
   overflow: hidden;
-  height: 100vh;
-  width: 100vw;
+  height: calc(90vh);
+  width: 100%;
   z-index: 1;
+  position: relative;
 }
 .slideshowSlider {
   height: 100%;
   width: 100%;
   white-space: nowrap;
-  /* transition: ease 1000ms; */
 }
 .slide {
   height: 100vh;
   width: 100vw;
+  background-repeat: no-repeat;
   object-fit: cover;
-
   z-index: 1;
+
+  /* transition: all 8s linear; */
+}
+.grow {
+  animation: zoom 8.025s ease-in infinite;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
 }
 
 .landing-content {
   position: absolute;
-  /* transform: translate(50%, 50%); */
-  right: 5%;
-  top: 30%;
-  height: 60vh;
-  width: 40vw;
+  transform: translate(-50%, 50%);
+  left: 50%;
+  bottom: 60%;
+  height: fit-content;
+  width: 40%;
+
   z-index: 2;
 }
 .content-info {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.824);
-  /* border: 3px solid var(--green); */
-  box-shadow: inset 0 0 8px 1px var(--red);
-  border-radius: 25px;
-  /* border-image-slice: 7 12 14 5; */
   animation: changeBorder 20s linear infinite;
-  transition: all 0.5s ease-in;
+  font-size: 28px;
   font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
     "Times New Roman", serif;
   font-size: 18px;
+  color: white;
+  transform: translate(-100vh, 0);
+  transition: all 2s linear;
+}
+
+.animate-content {
+  transform: translate(0vh, 0);
 }
 
 .content-info::before,
 .content-info::after {
-  content: " ";
-  position: absolute;
-  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.753);
-  background: rgba(0, 0, 0, 0.753);
-  right: 50%;
-  bottom: 2px;
-  height: 1px;
-  transform: translate(50%, 50%);
-  width: 100px;
-  z-index: 1;
+}
+.content-info::after {
+  left: -1px;
 }
 
 .info {
   display: flex;
-  height: 90%;
-  width: 90%;
-  padding: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  height: 100%;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   color: white;
+  text-shadow: 0 0 10px rgba(213, 213, 213, 0.605);
   position: relative;
-}
-.info h3 {
-  text-transform: capitalize;
+  font-size: 28px;
 }
 
 .info-illustration {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 35%;
-  width: 35%;
-  z-index: 1;
-  /* width: 100px; */
+  display: none;
+  bottom: 0%;
+  left: 0%;
+  height: 15vh;
+  overflow: hidden;
+  z-index: -1;
   opacity: 0.7;
 }
+
 .description {
   z-index: 2;
-  width: 75%;
+  text-align: center;
+  font-weight: 900;
 }
 .info-button {
-  border: none;
-  border-radius: 15px;
-  background: black;
-  height: 40px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: white;
-  min-width: 120px;
-  max-width: 150px;
-  padding: 3px;
-  z-index: 2;
-  font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
-    "Times New Roman", serif;
-  font-size: 18px;
+  border: none;
+  background-color: transparent;
+  font-size: 35px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 0 10px rgba(213, 213, 213, 0.605);
+  padding: 5vh 10px 5px 10px;
   cursor: pointer;
+  margin: 10px -10px 0 0;
+  /* transition: transform 1s; */
 }
-.info-button0 {
-  box-shadow: inset 0 0 8px 1px var(--green);
+.info-button:hover::after {
+  animation: underlineButton 2s linear infinite;
 }
-.info-button1 {
-  box-shadow: inset 0 0 8px 1px var(--yellow);
-}
-.info-button2 {
-  box-shadow: inset 0 0 8px 1px var(--red);
-}
-.info-button0:hover {
-  box-shadow: inset 0 0 40px 20px var(--green);
-  animation: colorizeGreen 1s ease-in-out;
-}
-@keyframes colorizeGreen {
-  from {
-    box-shadow: inset 0 0 1px 1px var(--green);
+@keyframes underlineButton {
+  0% {
+    transform: translate3d(-100%, 0, 0);
   }
-  to {
-    box-shadow: inset 0 0 40px 20px var(--green);
+  33% {
+    transform: translate3d(100%, 0, 0);
+  }
+  67% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
   }
 }
-.info-button1:hover {
-  box-shadow: inset 0 0 40px 20px var(--yellow);
-  color: black;
-  animation: colorizeYellow 1s ease-in-out;
+.info-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--bg);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+  /* animation: underlineButton 2s linear infinite; */
 }
-@keyframes colorizeYellow {
-  from {
-    box-shadow: inset 0 0 1px 1px var(--yellow);
-  }
-  to {
-    box-shadow: inset 0 0 40px 20px var(--yellow);
-    color: black;
-  }
+.info-button::after {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
-.info-button2:hover {
-  box-shadow: inset 0 0 40px 20px var(--red);
-  animation: colorizeRed 1s ease-in-out;
+
+.info-button:hover::after,
+.info-button:focus::after {
+  transform: translate3d(-100%, 0, 0);
 }
-@keyframes colorizeRed {
-  from {
-    box-shadow: inset 0 0 1px 1px var(--red);
-  }
-  to {
-    box-shadow: inset 0 0 40px 20px var(--red);
-  }
-}
+
 .pagination {
   position: absolute;
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  transform: translate(50%, 50%);
-  bottom: -7.5px;
-  right: 50%;
+  border: 1px solid white;
+  right: 10px;
+  top: 50%;
   cursor: pointer;
-  filter: grayscale(80%);
+  filter: grayscale(100%);
   z-index: 2;
   transition: all 0.5s ease-in;
 }
@@ -189,4 +196,105 @@
 }
 .pagination.active {
   filter: grayscale(0);
+}
+.collections-landing {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: -20px;
+  bottom: 50%;
+  transform: translate(0, 50%) rotate(270deg);
+  color: white;
+  font-size: 13px;
+  background: rgba(0, 0, 0, 0.708);
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+.collections-icon {
+  margin: 0 5px;
+}
+
+.mySwiper {
+  position: absolute !important;
+  top: 75px;
+  left: 0;
+  height: calc(100vh - 75px);
+  width: 100%;
+  z-index: 200 !important;
+}
+
+.mySwiper .swiper-slide {
+  height: 100%;
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  position: relative !important;
+}
+
+.mySwiper .swiper-slide img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+}
+.close-icon {
+  position: absolute !important;
+  right: 10%;
+  top: 10%;
+  z-index: 100 !important;
+  color: white !important;
+  font-size: 40px !important;
+  cursor: pointer;
+  transition: all 300ms linear !important;
+}
+.close-icon:hover {
+  transform: scale(1.1) !important;
+}
+
+@media only screen and (max-width: 550px) {
+  .landing-slide-container {
+    height: 70vh;
+  }
+  .landing-content {
+    transform: translate(0, 0);
+    bottom: 0;
+    left: 0;
+    height: 30vh;
+    width: 100%;
+    color: black;
+  }
+  .content-info {
+    /* box-shadow: inset 0px 0px 200px 5px var(--bg); */
+  }
+  .info {
+    width: 80%;
+    color: black;
+    font-size: 20px;
+  }
+  .info-button {
+    color: black;
+  }
+  .collections-landing {
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    padding: 15px;
+
+    font-size: 13px;
+  }
+  .info-illustration {
+    display: block;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .landing-content {
+    width: 100%;
+  }
+  .info {
+    font-size: 20px;
+  }
 }

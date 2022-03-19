@@ -1,0 +1,111 @@
+.anemities-container {
+  margin-top: -15vh;
+  width: 75%;
+  background: rgb(248, 248, 248);
+  height: 80vh;
+  color: black;
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.269);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto", Cochin, Georgia, Times, "Times New Roman", serif;
+  z-index: 2;
+  position: relative;
+}
+.legend {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  font-size: 12px;
+  display: flex;
+}
+.legend-items {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.legend-items .icons {
+  font-size: 15px;
+  margin-right: 3px;
+}
+.anemities-container h3 {
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  height: 15%;
+  width: 90%;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  position: relative;
+  font-family: "Satisfy", "Roboto", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  overflow: hidden;
+}
+
+.anemities-swiper {
+  height: 70%;
+  width: 90%;
+  position: relative;
+  /* border: 1px solid red; */
+}
+
+.anemities-swiper .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.anemities-swiper .swiper-slide .icon {
+  font-size: 120px;
+  transition: font-size 0.3s ease-in;
+  color: rgb(136, 136, 136);
+}
+.anemities-swiper .swiper-slide p {
+  display: flex;
+  align-items: center;
+}
+.anemities-swiper .swiper-slide p .icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+.anemities-swiper .swiper-slide-active .icon {
+  /* height: 30%; */
+  /* width: 40%; */
+  font-size: 300px;
+  color: black;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgb(31, 31, 31);
+  transition: transform 0.5s linear;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: black;
+  transform: scale(1.1);
+}
+
+.anemities-thumb-swiper {
+  height: 15%;
+  width: 90%;
+  border-top: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.anemities-thumb-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.anemities-thumb-swiper .swiper-slide .icon {
+  font-size: 40px;
+  color: rgb(136, 136, 136);
+  cursor: pointer;
+}
+
+.anemities-thumb-swiper .swiper-slide-thumb-active .icon {
+  color: black;
+}
