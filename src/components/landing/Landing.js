@@ -1,20 +1,29 @@
 import React, { useState, useEffect, useRef } from "react";
+import { PortalWithState } from "react-portal";
 
 import landingHouse from "../../images/landinghouse.jpg";
 import heroImage from "../../images/landingdemo.jpg";
 import demoHills from "../../images/demohills.jpg";
+import entrance from "../../images/entrance.jpg";
+import livingRoom from "../../images/livingroom.jpg";
+import kitchen from "../../images/kitchen.jpg";
 import chefIll from "../../images/chef.svg";
 import travelIll from "../../images/travel.svg";
 import homeIll from "../../images/home.svg";
 
-import "../../styles/landing.css";
+import CollectionsIcon from "@mui/icons-material/Collections";
 
-const images = [heroImage, landingHouse, demoHills];
+import "../../styles/landing.css";
+import LandingGallery from "./LandingGallery";
+
+const images = [entrance, kitchen, livingRoom];
 const color = ["#00853f", "#fdef42", "#e31b23"];
 
-const delay = 800000;
+const delay = 8000;
 const Landing = () => {
   const [index, setIndex] = useState(0);
+  const [open, setOpen] = useState(0);
+  const [animate, setAnimate] = useState(true);
   const timeoutRef = useRef(null);
 
   function resetTimeout() {
@@ -22,41 +31,87 @@ const Landing = () => {
       clearTimeout(timeoutRef.current);
     }
   }
+  useEffect(() => {
+    const landing = document.getElementById("landing");
+    const dark = document.getElementById("darken");
+    if (open) {
+      dark.style.backgroundColor = "rgba(0,0,0,.7)";
+      dark.style.zIndex = "101";
+      landing.style.filter = "grayscale(90%)";
+    } else {
+      landing.style.filter = "grayscale(0)";
+      dark.style.zIndex = "1";
+      dark.style.backgroundColor = "inherit";
+    }
+  }, [open]);
 
   useEffect(() => {
     images.push(images[index]);
+
     resetTimeout();
-    timeoutRef.current = setTimeout(
-      () =>
-        setIndex((prevIndex) =>
-          prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        ),
-      delay
-    );
+    timeoutRef.current = setTimeout(() => {
+      setIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, delay);
     return () => {
       resetTimeout();
     };
   }, [index]);
 
   return (
-    <div className="landing">
-      <div className="darken"></div> {/* to darken the background image */}
+    <div className="landing" id="landing">
       <div className="landing-slide-container">
+        <PortalWithState
+          closeOnOutsideClick
+          closeOnEsc
+          node={document && document.getElementById("modal")}
+          onOpen={() => setOpen(true)}
+          onClose={() => setOpen(false)}
+        >
+          {({ openPortal, closePortal, isOpen, portal }) => (
+            <React.Fragment>
+              <div className="collections-landing" onClick={openPortal}>
+                {/* <p>view</p> */}
+                <CollectionsIcon className="collections-icon" />
+                <p>gallery</p>
+              </div>
+              {portal(<LandingGallery onClose={closePortal} />)}
+            </React.Fragment>
+          )}
+        </PortalWithState>
+        <div className="darken" id="darken"></div>{" "}
+        {/* to darken the background image */}
+        {[color[0], color[1], color[2]].map((color, idx) => (
+          <div
+            key={idx}
+            className={`pagination${index % 3 === idx ? " active" : ""}`}
+            style={{
+              margin: `calc(30px * ${idx - 1}) 0`,
+              background: color
+            }}
+            onClick={() => {
+              setIndex(idx);
+            }}
+          ></div>
+        ))}
         <div
           className="slideshowSlider"
           style={{ transform: `translate3d(${-index * 100}vw, 0, 0)` }}
         >
-          {images.map((image, index) => (
-            <img className="slide" key={index} src={image} />
+          {images.map((image, i) => (
+            <img
+              className={(i === index) & 3 ? "slide grow" : "slide"}
+              key={i}
+              src={image}
+            />
           ))}
         </div>
       </div>
       <div className="landing-content">
         <div
-          className="content-info"
-          style={{
-            boxShadow: `inset 0 0 100px 10px rgba(255,255,255,.6), 5px 5px 10px 5px rgba(0,0,0,.6)`
-          }}
+          className="content-info animate-content"
+          style={{ "--bg": color[index % 3] }}
         >
           {index % 3 === 0 && (
             <div className="info">
@@ -112,19 +167,6 @@ const Landing = () => {
               </button>
             </div>
           )}
-          {[color[0], color[1], color[2]].map((color, idx) => (
-            <div
-              key={idx}
-              className={`pagination${index % 3 === idx ? " active" : ""}`}
-              style={{
-                margin: `0 calc(-30px * ${idx - 1})`,
-                background: color
-              }}
-              onClick={() => {
-                setIndex(idx);
-              }}
-            ></div>
-          ))}
         </div>
       </div>
     </div>
