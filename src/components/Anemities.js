@@ -15,7 +15,7 @@ import {
   Add
 } from "@mui/icons-material";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Thumbs, Navigation, Controller } from "swiper";
+import { Thumbs, Navigation, Controller, Autoplay } from "swiper";
 
 import "swiper/css/thumbs";
 import "swiper/css";
@@ -93,7 +93,12 @@ const Anemities = () => {
         Anemities
       </h3>
       <Swiper
-        modules={[Thumbs, Navigation, Controller]}
+        autoplay={{
+          delay: "3000",
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        }}
+        modules={[Thumbs, Navigation, Controller, Autoplay]}
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
         className="anemities-swiper"
@@ -148,7 +153,22 @@ const Anemities = () => {
         className="anemities-thumb-swiper"
       >
         {data.map((ele, id) => {
-          return <SwiperSlide key={id}>{ele.icon}</SwiperSlide>;
+          return (
+            <SwiperSlide key={id}>
+              {ele.icon}
+              {ele.type === "paid" ? (
+                <Add
+                  className="icons"
+                  style={{ color: "#e31b23", fontSize: "15px" }}
+                />
+              ) : (
+                <Check
+                  className="icons"
+                  style={{ color: "#00853f", fontSize: "15px" }}
+                />
+              )}
+            </SwiperSlide>
+          );
         })}
       </Swiper>
     </div>

@@ -7,7 +7,7 @@
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: 1fr;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 24px;
+  font-size: 18px;
   align-items: center;
   z-index: 100;
   color: white;
@@ -19,6 +19,7 @@
   align-items: center;
   margin: 0 0 0px 20%;
   z-index: 100;
+  font-size: 20px;
 }
 .smaller-logo {
   display: none;
@@ -32,15 +33,15 @@
 }
 
 .large {
-  font-size: 50px;
-  padding-bottom: 15px;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.784);
+  font-size: 40px;
+  padding-bottom: 12px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.784);
 }
 .star-icon {
   font-size: 35px !important;
   color: var(--red) !important;
-  transform: rotate(5deg);
-  margin: 5px;
+  transform: rotate(0deg);
+  margin: 5px 0 10px 1px;
   animation: moveStar 1s linear;
   animation-delay: 1.5s;
 }
@@ -101,7 +102,7 @@
 }
 .important-link {
   transition: transform 1s;
-  font-size: 25px;
+  font-size: 22px;
 }
 .important-link::after {
   opacity: 1;

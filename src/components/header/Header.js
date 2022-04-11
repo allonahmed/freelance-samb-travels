@@ -4,7 +4,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import LanguageIcon from "@mui/icons-material/Language";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { WindupChildren, Pace, Pause, Effect } from "windups";
 
@@ -12,7 +12,7 @@ import "../../styles/header.css";
 
 const color = ["#00853f", "#fdef42", "#e31b23"];
 
-const Header = () => {
+const Header = ({ cr, bg, border, full }) => {
   const [clicked, setClicked] = useState(false);
   const [openNav, setNav] = useState(false);
   const [scrollY, setScoll] = useState(0);
@@ -32,7 +32,7 @@ const Header = () => {
               color: "rgb(1,1,1)",
               borderBottom: "1px solid black"
             }
-          : { background: "none", color: "rgb(255,255,255)" }
+          : { background: bg, color: cr, borderBottom: border }
       }
     >
       <div className="logo" style={{ "--bg": color[1] }}>
@@ -73,12 +73,11 @@ const Header = () => {
       >
         <HashLink
           to="/#info"
-          style={{ "--bg": color[0] }}
           className="nav-item nav-item1"
           style={
             scrollY >= 100
               ? { color: "rgb(1,1,1)", "--bg": color[0] }
-              : { color: "#fff", "--bg": color[0] }
+              : { color: cr, "--bg": color[0] }
           }
         >
           Features
@@ -88,7 +87,7 @@ const Header = () => {
           style={
             scrollY >= 100
               ? { color: "rgb(1,1,1)", "--bg": color[1] }
-              : { color: "#fff", "--bg": color[1] }
+              : { color: cr, "--bg": color[1] }
           }
           className="nav-item nav-item1"
         >
@@ -105,11 +104,12 @@ const Header = () => {
             style={
               scrollY >= 100
                 ? { color: "rgb(1,1,1)", "--bg": color[2] }
-                : { color: "#fff", "--bg": color[2] }
+                : { color: cr, "--bg": color[2] }
             }
           >
             {" "}
-            <LanguageIcon /> <p style={{ padding: "2px" }}>Eng</p>{" "}
+            <LanguageIcon sx={{ fontSize: "22px" }} />{" "}
+            <p style={{ padding: "2px" }}>Eng</p>{" "}
             {clicked ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </div>
           <div
@@ -129,17 +129,17 @@ const Header = () => {
         </div>
       </div>
       <div className="book">
-        <HashLink
+        <Link
           className="nav-item important-link"
-          to="/#book"
+          to="/book"
           style={
             scrollY >= 100
               ? { color: "rgb(1,1,1)", "--bg": color[2] }
-              : { color: "#fff", "--bg": color[2] }
+              : { color: cr, "--bg": color[2] }
           }
         >
           Book
-        </HashLink>
+        </Link>
       </div>
     </div>
   );
