@@ -102,7 +102,7 @@
   align-items: center;
   justify-content: center;
   color: white;
-  text-shadow: 0 0 10px rgba(213, 213, 213, 0.605);
+  text-shadow: 0 0 2px rgba(213, 213, 213, 0.605);
   position: relative;
   font-size: 28px;
 }
@@ -132,7 +132,7 @@
   border-radius: 15px;
   position: relative;
   overflow: hidden;
-  text-shadow: 0 0 10px rgba(213, 213, 213, 0.605);
+  text-shadow: 0 0 2px rgba(213, 213, 213, 0.605);
   padding: 5vh 10px 5px 10px;
   cursor: pointer;
   margin: 10px -10px 0 0;

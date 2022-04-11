@@ -1,19 +1,16 @@
-import Header from "./components/header/Header";
 import "./App.css";
-import Landing from "./components/landing/Landing";
-import Offers from "./components/Offers";
-import Anemities from "./components/Anemities";
-import ParallaxHouse from "./components/ParrallaxHouse";
+import Main from "./pages/Main";
+import Book from "./pages/Book";
+import { Routes, Route } from "react-router-dom";
+import StripeContainer from "./components/booking/StripeContainer";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Landing />
-      <Offers />
-      <ParallaxHouse />
-      <Anemities />
-      <div style={{ height: "100vh", background: "black" }}></div>
+    <div>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/book" element={<Book />} />
+      </Routes>
     </div>
   );
 }
