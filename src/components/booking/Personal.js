@@ -9,7 +9,7 @@ const Personal = ({ active }) => {
   return (
     <div
       className="personal-form form"
-      style={active === 3 ? { display: "flex" } : { display: "none" }}
+      style={active === 4 ? { display: "flex" } : { display: "none" }}
     >
       <h3 className="error-handle">{data.error ? data.error : ""}</h3>
       <div className="field">

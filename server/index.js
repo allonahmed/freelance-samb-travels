@@ -27,12 +27,12 @@ const db = mysql.createConnection({
 });
 
 app.post("/payment", cors(), async (req, res) => {
-  let { amount, id } = req.body;
+  let { amount, id, description } = req.body;
   try {
     const payment = await stripe.paymentIntents.create({
       amount,
       currency: "USD",
-      description: "room for rent",
+      description: description,
       payment_method: id,
       confirm: true
     });
@@ -65,6 +65,6 @@ app.get("/view_availability", (req, res) => {
   );
 });
 
-app.listen(8080, () => {
-  console.log(`server is listening on port 8080`);
+app.listen(8081, () => {
+  console.log(`server is listening on port 8081`);
 });

@@ -27,7 +27,7 @@ const DatePicker = () => {
 
   //get days that are unavailable
   useEffect(() => {
-    axios.get("http://localhost:8080/view_availability").then((res) => {
+    axios.get("http://localhost:8081/view_availability").then((res) => {
       if (res.data) {
         let badDates = [];
         res.data.forEach((element) => {

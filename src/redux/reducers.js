@@ -24,7 +24,9 @@ const savedInitialState = {
   phoneNumber: null,
   activeForm: 1,
   price: 0,
-  error: null
+  error: null,
+  priceTaxed: 0,
+  paymentSuccess: false
 };
 
 export const reduxStore = createSlice({
@@ -115,6 +117,9 @@ export const reduxStore = createSlice({
     updateError: (state, action) => {
       state.error = action.payload;
     },
+    updatePriceTaxed: (state, action) => {
+      state.priceTaxed = action.payload;
+    },
     updateEmail: (state, action) => {
       state.emailAddress = action.payload;
     },
@@ -123,6 +128,9 @@ export const reduxStore = createSlice({
     },
     updatePhone: (state, action) => {
       state.phoneNumber = action.payload;
+    },
+    updateSuccess: (state, action) => {
+      state.paymentSuccess = action.payload;
     }
   }
 });
@@ -143,7 +151,9 @@ export const {
   updateError,
   updateEmail,
   updateName,
-  updatePhone
+  updatePhone,
+  updatePriceTaxed,
+  updateSuccess
 } = reduxStore.actions;
 
 export default reduxStore.reducer;

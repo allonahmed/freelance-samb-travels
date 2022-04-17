@@ -9,7 +9,7 @@ const PUBLIC_KEY =
 const StripeContainer = ({ active }) => {
   const stripeTestPromise = loadStripe(PUBLIC_KEY);
   return (
-    <div style={active === 4 ? { display: "block" } : { display: "none" }}>
+    <div style={active === 3 ? { display: "block" } : { display: "none" }}>
       <Elements stripe={stripeTestPromise}>
         <Form />
       </Elements>

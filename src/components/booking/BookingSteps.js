@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { Check } from "@mui/icons-material";
 
 const BookingSteps = ({ active }) => {
   const [steps, updateSteps] = useState([
     { title: "Orders", icon: "", isComplete: false },
     { title: "Add Ons", icon: "", isComplete: false },
-    { title: "Personal", icon: "", isComplete: false },
     { title: "Payment", icon: "", isComplete: false }
   ]);
 
@@ -98,39 +96,6 @@ const BookingSteps = ({ active }) => {
           }
         >
           {steps[2].title}
-        </p>
-      </div>
-      <div
-        className="bar"
-        style={
-          active > 3
-            ? { background: "#00853f" }
-            : { background: "rgb(170, 170, 170)" }
-        }
-      ></div>
-      <div
-        className="steps"
-        style={
-          active > 4
-            ? { borderColor: "#00853f" }
-            : { borderColor: "rgb(170, 170, 170)" }
-        }
-      >
-        <span
-          style={
-            active > 3
-              ? { background: "#00853f" }
-              : { background: "rgb(170, 170, 170)" }
-          }
-        ></span>
-        <p
-          style={
-            active === 4
-              ? { color: "#00853f" }
-              : { color: "rgb(170, 170, 170)" }
-          }
-        >
-          {steps[3].title}
         </p>
       </div>
     </div>

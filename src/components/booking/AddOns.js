@@ -30,7 +30,7 @@ const AddOns = ({ active }) => {
       className="form add-on-form"
       style={active === 2 ? { display: "flex" } : { display: "none" }}
     >
-      <div className="add-on-header">Get Additional Add Ons</div>
+      <div className="add-on-header form-header">Get Additional Add Ons</div>
 
       {addOnsData.map((add, id) => {
         return (

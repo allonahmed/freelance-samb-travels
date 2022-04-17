@@ -5,7 +5,8 @@ import {
   updateCountsAdd,
   updateCountsMinus,
   updateAddOns,
-  updatePrice
+  updatePrice,
+  updatePriceTaxed
 } from "../../redux/reducers";
 import {
   monument,
@@ -36,7 +37,9 @@ const CartSummary = () => {
       count: data.roomCount,
       price: getRoomPrice() * data.dayCount,
       title: `${data.roomCount} Rooms`,
-      id: 6
+      id: 6,
+      max: data.roomCount,
+      per: "room"
     },
     {
       addOn: data.personalChef,
@@ -44,7 +47,9 @@ const CartSummary = () => {
       count: data.personalChefCount,
       price: 40 * data.personalChefCount,
       title: "Personal Chef",
-      id: 0
+      id: 0,
+      max: data.dayCount,
+      per: "day"
     },
     {
       addOn: data.atvRide,
@@ -52,7 +57,9 @@ const CartSummary = () => {
       count: data.atvCount,
       price: 40 * data.atvCount,
       title: "ATV Ride",
-      id: 1
+      id: 1,
+      max: data.guestCount,
+      per: "guest"
     },
     {
       addOn: data.goree,
@@ -60,7 +67,8 @@ const CartSummary = () => {
       count: data.goreeCount,
       price: 30 * data.goreeCount,
       title: "Tour of Gorée Island",
-      id: 2
+      id: 2,
+      max: data.guestCount
     },
     {
       addOn: data.lessons,
@@ -68,7 +76,9 @@ const CartSummary = () => {
       count: data.lessonsCount,
       price: 80 * data.lessonsCount,
       title: "Senegalese Cooking Lessons",
-      id: 3
+      id: 3,
+      max: data.dayCount,
+      per: "session"
     },
     {
       addOn: data.safari,
@@ -76,7 +86,9 @@ const CartSummary = () => {
       count: data.safariCount,
       price: 120 * data.safariCount,
       title: "Fathala Wildlife Reserve",
-      id: 4
+      id: 4,
+      max: data.guestCount,
+      per: "guest"
     },
     {
       addOn: data.renaissance,
@@ -84,7 +96,9 @@ const CartSummary = () => {
       count: data.renaissanceCount,
       price: 20 * data.renaissanceCount,
       title: "Monument of the Renaissance",
-      id: 5
+      id: 5,
+      max: data.guestCount,
+      per: "guest"
     }
   ];
 
@@ -98,11 +112,8 @@ const CartSummary = () => {
       price += filteredOptions[i].price;
     }
     dispatch(updatePrice(price));
+    dispatch(updatePriceTaxed(data.price * 0.07 + data.price));
   }, [data]);
-
-  const taxTotal = () => {
-    return data.price * 0.07;
-  };
 
   return (
     <div className="cart-container">
@@ -132,6 +143,7 @@ const CartSummary = () => {
                     <div className="selected-numbers">
                       <button
                         className="counter-buttons"
+                        disabled={option.count === 1}
                         onClick={() => dispatch(updateCountsMinus(option.id))}
                       >
                         -
@@ -141,15 +153,19 @@ const CartSummary = () => {
                       </div>
                       <button
                         className="counter-buttons"
+                        disabled={option.max === option.count}
                         onClick={() => dispatch(updateCountsAdd(option.id))}
                       >
                         {" "}
                         +{" "}
                       </button>
                       <span style={{ padding: "0 5px " }}> x </span>
-                      <div className="selected-price">
+                      <div
+                        className="selected-price"
+                        style={{ textTransform: "capitalize" }}
+                      >
                         {" "}
-                        $ {option.price / option.count}.00
+                        $ {option.price / option.count}.00/{option.per}
                       </div>
                     </div>
                   )}
@@ -187,7 +203,7 @@ const CartSummary = () => {
 
         <div className="price">
           <p>Tax</p>
-          <p>${taxTotal().toFixed(2)}</p>
+          <p>${(data.priceTaxed - data.price).toFixed(2)}</p>
         </div>
         <div className="price">
           <p>Discount</p>
@@ -198,7 +214,7 @@ const CartSummary = () => {
           style={{ fontWeight: "900", fontSize: "16px", opacity: "1" }}
         >
           <p>Total</p>
-          <p>${(data.price + taxTotal()).toFixed(2)}</p>
+          <p>${data.priceTaxed.toFixed(2)}</p>
         </div>
       </div>
     </div>

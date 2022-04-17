@@ -68,7 +68,7 @@
 .bar {
   background: var(--green);
   height: 2px;
-  width: calc((50vw / 3) - 30px);
+  width: calc((50vw / 2) - 30px);
 }
 
 .controls {
@@ -158,13 +158,15 @@
   height: 38px;
   border-radius: 5px;
   border: 1px solid rgb(160, 160, 160);
+  background: #eff2f7;
+  padding-left: 10px;
 }
 .field-input:focus {
   border-color: green;
 }
 
 .field input::placeholder {
-  padding-left: 10px;
+  /* padding-left: 10px; */
   opacity: 0.5;
 }
 

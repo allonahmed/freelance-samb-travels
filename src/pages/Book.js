@@ -14,7 +14,7 @@ import StripeContainer from "../components/booking/StripeContainer";
 const Book = () => {
   const data = useSelector((state) => state.reduxStore);
   const dispatch = useDispatch();
-  console.log(data);
+  // console.log(data);
 
   const nextClick = async () => {
     if (data.activeForm === 1) {
@@ -53,7 +53,6 @@ const Book = () => {
         <div className="book-container">
           <div className="form-options">
             <BookingSteps active={data.activeForm} />
-            <Personal active={data.activeForm} />
             <AddOns active={data.activeForm} />
             <Orders active={data.activeForm} />
             <StripeContainer active={data.activeForm} />

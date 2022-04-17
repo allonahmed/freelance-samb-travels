@@ -1,0 +1,18 @@
+.footer {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  background-color: #6f2cd5;
+}
+
+.footer img {
+  height: 80px;
+  width: 80px;
+}
+.footer .footer-link {
+  padding: 30px;
+  font-size: 22px;
+  color: white;
+}
