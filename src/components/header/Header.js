@@ -35,7 +35,15 @@ const Header = ({ cr, bg, border, full }) => {
           : { background: bg, color: cr, borderBottom: border }
       }
     >
-      <div className="logo" style={{ "--bg": color[1] }}>
+      <Link
+        to="/"
+        className="logo"
+        style={
+          scrollY >= 100
+            ? { color: "rgb(1,1,1)", "--bg": color[0] }
+            : { color: cr, "--bg": color[0] }
+        }
+      >
         <WindupChildren>
           <Pace ms={75}>
             <span className="green large">{"D"}</span>
@@ -49,7 +57,7 @@ const Header = ({ cr, bg, border, full }) => {
           </Pace>
         </WindupChildren>
         <StarIcon className="star-icon" />
-      </div>
+      </Link>
       <div className="smaller-logo" style={{ "--bg": color[1] }}>
         <WindupChildren>
           <Pace ms={75}>

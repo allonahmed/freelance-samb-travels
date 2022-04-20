@@ -10,6 +10,7 @@ import AddOns from "../components/booking/AddOns";
 import { useSelector, useDispatch } from "react-redux";
 import { updateError, updateActiveForm } from "../redux/reducers";
 import StripeContainer from "../components/booking/StripeContainer";
+import SmallHeader from "../components/header/SmallHeader";
 
 const Book = () => {
   const data = useSelector((state) => state.reduxStore);
@@ -42,7 +43,7 @@ const Book = () => {
 
   return (
     <div className="booking">
-      <Header
+      <SmallHeader
         cr="rgb(1,1,1)"
         bg="rgb(248,248,248)"
         border="1px solid black"

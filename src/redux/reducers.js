@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { addDays } from "date-fns";
 
 const savedInitialState = {
-  roomCount: null,
+  roomCount: 1,
   guestCount: null,
   checkIn: addDays(new Date(), 1).toLocaleDateString(),
   checkOut: addDays(new Date(), 2).toLocaleDateString(),

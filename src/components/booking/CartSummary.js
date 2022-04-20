@@ -68,7 +68,8 @@ const CartSummary = () => {
       price: 30 * data.goreeCount,
       title: "Tour of Gorée Island",
       id: 2,
-      max: data.guestCount
+      max: data.guestCount,
+      per: "Guest"
     },
     {
       addOn: data.lessons,

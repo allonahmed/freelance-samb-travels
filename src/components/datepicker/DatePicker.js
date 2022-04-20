@@ -27,16 +27,20 @@ const DatePicker = () => {
 
   //get days that are unavailable
   useEffect(() => {
-    axios.get("http://localhost:8081/view_availability").then((res) => {
-      if (res.data) {
-        let badDates = [];
-        res.data.forEach((element) => {
-          badDates.push(new Date(element.date));
-        });
-        setUnavailable(badDates);
-      }
-    });
-  }, []);
+    axios
+      .post("http://localhost:8083/view_availability", {
+        roomCount: data.roomCount
+      })
+      .then((res) => {
+        if (res.data) {
+          let badDates = [];
+          res.data.forEach((element) => {
+            badDates.push(new Date(element.date));
+          });
+          setUnavailable(badDates);
+        }
+      });
+  }, [data]);
 
   const handleChange = (item) => {
     setState([item.selection]);

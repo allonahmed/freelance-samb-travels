@@ -104,7 +104,7 @@
   color: white;
   text-shadow: 0 0 2px rgba(213, 213, 213, 0.605);
   position: relative;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .info-illustration {
@@ -128,7 +128,7 @@
   color: white;
   border: none;
   background-color: transparent;
-  font-size: 35px;
+  font-size: 28px;
   border-radius: 15px;
   position: relative;
   overflow: hidden;

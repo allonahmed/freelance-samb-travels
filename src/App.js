@@ -1,11 +1,11 @@
-import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import Success from "./pages/Success";
 import Main from "./pages/Main";
 import Book from "./pages/Book";
-import { Routes, Route, Navigate } from "react-router-dom";
-import StripeContainer from "./components/booking/StripeContainer";
-import { updateSuccess } from "./redux/reducers";
-import { useSelector, useDispatch } from "react-redux";
-import Success from "./pages/Success";
+
+import "./App.css";
 
 function App() {
   const success = useSelector((state) => state.reduxStore.paymentSuccess);

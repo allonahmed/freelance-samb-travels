@@ -12,7 +12,8 @@ import {
   SoupKitchen,
   CleaningServices,
   Check,
-  Add
+  Add,
+  Security
 } from "@mui/icons-material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs, Navigation, Controller, Autoplay } from "swiper";
@@ -58,6 +59,12 @@ const data = [
     type: "free"
   },
   {
+    title: "Security",
+    icon: <Security className="icon" />,
+    desciption: "Home Security",
+    type: "free"
+  },
+  {
     title: "Personal Chef",
     icon: <SoupKitchen className="icon" />,
     desciption: "Access to personal chef",
@@ -69,12 +76,7 @@ const data = [
     desciption: "Explore city with travel guide",
     type: "paid"
   },
-  {
-    title: "Cleaning Service",
-    icon: <CleaningServices className="icon" />,
-    desciption: "Maid service",
-    type: "paid"
-  },
+
   {
     title: "Cooking Lessons",
     icon: <LocalDining className="icon" />,

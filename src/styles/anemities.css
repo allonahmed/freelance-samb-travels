@@ -1,10 +1,11 @@
 .anemities-container {
-  margin-top: -15vh;
+  margin-top: -25vh;
   width: 75%;
   background: rgb(248, 248, 248);
-  height: 80vh;
+  height: 50vh;
   color: black;
-  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.269);
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.249);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +17,7 @@
   position: absolute;
   bottom: 5px;
   right: 0;
-  font-size: 12px;
+  font-size: 10px;
   display: flex;
 }
 .legend-items {
@@ -40,6 +41,7 @@
   font-family: "Satisfy", "Roboto", Cambria, Cochin, Georgia, Times,
     "Times New Roman", serif;
   overflow: hidden;
+  color: black !important;
 }
 
 .anemities-swiper {
@@ -58,13 +60,14 @@
   height: 100%;
 }
 .anemities-swiper .swiper-slide .icon {
-  font-size: 120px;
+  font-size: 80px;
   transition: font-size 0.3s ease-in;
-  color: rgb(136, 136, 136);
+  color: rgba(136, 136, 136, 0.677);
 }
 .anemities-swiper .swiper-slide p {
   display: flex;
   align-items: center;
+  color: black;
 }
 .anemities-swiper .swiper-slide p .icon {
   font-size: 20px;
@@ -73,7 +76,7 @@
 .anemities-swiper .swiper-slide-active .icon {
   /* height: 30%; */
   /* width: 40%; */
-  font-size: 300px;
+  font-size: 200px;
   color: black;
 }
 .swiper-button-next,
@@ -102,8 +105,8 @@
   justify-content: center;
 }
 .anemities-thumb-swiper .swiper-slide .icon {
-  font-size: 40px;
-  color: rgb(136, 136, 136);
+  font-size: 30px;
+  color: rgba(136, 136, 136, 0.677);
   cursor: pointer;
 }
 

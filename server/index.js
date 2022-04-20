@@ -18,12 +18,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const mysql = require("mysql");
+const { query } = require("express");
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
   database: "Dakar",
-  port: "3306"
+  port: "3306",
+  multipleStatements: true
 });
 
 app.post("/payment", cors(), async (req, res) => {
@@ -51,9 +53,11 @@ app.post("/payment", cors(), async (req, res) => {
 });
 
 //make this a post request so we can pick what the count should be;
-app.get("/view_availability", (req, res) => {
+app.post("/view_availability", (req, res) => {
+  const roomCount = req.body.roomCount;
   db.query(
-    "Select * from Dakar.dakar_availability where COUNT = 6",
+    "Select * from Dakar.dakar_availability where (COUNT + (?)) > 6",
+    [roomCount],
     (error, result) => {
       if (error) {
         res.send(error);
@@ -64,7 +68,14 @@ app.get("/view_availability", (req, res) => {
     }
   );
 });
+//send customer information to db
 
-app.listen(8081, () => {
-  console.log(`server is listening on port 8081`);
+app.post("/send-info", (req, res) => {
+  const data = req.body;
+  const query1 = "insert into dakar.customer_information (values)";
+  db.query();
+});
+
+app.listen(8083, () => {
+  console.log(`server is listening on port 8083`);
 });

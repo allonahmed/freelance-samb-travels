@@ -61,7 +61,7 @@ const Orders = ({ active }) => {
         <Select
           placeholder="Select guests..."
           options={guestOptions.slice(
-            0,
+            data.roomCount ? data.roomCount - 1 : 0,
             data.roomCount ? data.roomCount * 2 : 1
           )}
           value={data.guestCount ? data.guestCount.value : 0}

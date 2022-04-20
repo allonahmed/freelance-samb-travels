@@ -13,6 +13,7 @@ import validator from "validator";
 import axios from "axios";
 
 import "../../styles/paymentForm.css";
+import { personalchef, safari } from "../../images/images";
 
 const CARD_OPTIONS = {
   iconStyle: "solid",
@@ -41,7 +42,6 @@ const Form = () => {
   const userData = useSelector((state) => state.reduxStore);
   const dispatch = useDispatch();
 
-  console.log("error message:", userData.error);
   const star = (
     <span
       style={{
@@ -57,8 +57,12 @@ const Form = () => {
   const formValidate = async (e) => {
     e.preventDefault();
     if (userData.emailAddress && userData.fullName && userData.phoneNumber) {
-      handleSubmit(e);
-      dispatch(updateError(null));
+      if (!validator.isEmail(userData.emailAddress)) {
+        dispatch(updateError("Please enter a valid email address!"));
+      } else {
+        handleSubmit(e);
+        dispatch(updateError(null));
+      }
     } else {
       dispatch(updateError("All fields required!"));
     }
@@ -78,7 +82,7 @@ const Form = () => {
       try {
         const { id } = paymentMethod;
 
-        const response = await axios.post("http://localhost:8081/payment", {
+        const response = await axios.post("http://localhost:8083/payment", {
           amount: userData.priceTaxed * 100,
           id,
           description: `Customer Name: ${userData.fullName}, Email Address: ${
@@ -95,6 +99,38 @@ const Form = () => {
 
         if (response.data.success) {
           console.log("success");
+          axios
+            .post("http://localhost:8083/send-info", {
+              full_name: userData.fullName,
+              email_address: userData.emailAddress,
+              phone_number: userData.phoneNumber,
+              check_in: userData.checkIn,
+              check_out: userData.checkOut,
+              day_count: userData.dayCount,
+              room_count: userData.roomCount,
+              guest_count: userData.guestCount,
+              price: userData.price,
+              total_price: userData.priceTaxed,
+              personal_chef: userData.personalChef,
+              personal_chef_count: userData.personalChefCount,
+              atv_ride: userData.atvRide,
+              atv_ride_count: userData.atvCount,
+              goree_island: userData.goree,
+              goree_island_count: userData.goreeCount,
+              cooking_lessons: userData.lessons,
+              cooking_lessons_count: userData.lessonsCount,
+              safari: userData.safari,
+              safari_count: userData.safariCount,
+              renaissance: userData.renaissance,
+              renaissance_count: userData.renaissanceCount
+            })
+            .then((resp) => {
+              if (resp.data) {
+                console.log(resp.data);
+              } else {
+                console.log("somethign went wrogn!");
+              }
+            });
           dispatch(updateSuccess(true));
         }
       } catch (error) {
@@ -105,9 +141,11 @@ const Form = () => {
       dispatch(updateError(error.message));
     }
   };
+  //send customer information to db
   useEffect(() => {
     console.log(userData.paymentSuccess);
   }, [userData.paymentSuccess]);
+  console.log(userData);
 
   return (
     <div className="form">
