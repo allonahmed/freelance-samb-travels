@@ -6,10 +6,10 @@ for (let i = 1; i < 750; i += 1) {
 }
 
 console.log(
-  "Insert INTO Dakar.dakar_availability (id, date, room1, room2, room3, room4, room5, room6, count)\n VALUES "
+  "Insert INTO heroku_03639dc988b6688.room_count (id, date, count)\n VALUES "
 );
 for (let i = 0; i < dates.length; i += 1) {
-  console.log(`(${i}, "${dates[i]}", false,false,false,false,false,false, 0)`);
+  console.log(`(${i}, "${dates[i]}", 0)`);
   if (i + 1 < dates.length) {
     console.log(",");
   }

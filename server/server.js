@@ -43,10 +43,10 @@ app.post("/payment", cors(), async (req, res) => {
 });
 
 //make this a post request so we can pick what the count should be;
-app.post("/view_availability", (req, res) => {
+app.post("/room_count", (req, res) => {
   const roomCount = req.body.roomCount;
   db.query(
-    `Select * from Dakar.dakar_availability where (COUNT + ${roomCount}) > 6`,
+    `Select * from room_count where (COUNT + ${roomCount}) > 6`,
     (error, result) => {
       if (error) {
         res.send(error);
@@ -76,7 +76,7 @@ app.post("/send-dates", (req, res) => {
       ).toLocaleDateString()}'; `;
   }
 
-  const query = `UPDATE dakar.dakar_availability SET count = count + ${room_count} where ${dates}`;
+  const query = `UPDATE heroku_03639dc988b6688.room_count SET count = count + ${room_count} where ${dates}`;
   db.query(query, (error, result) => {
     if (error) res.send(error);
     else res.send(result);
@@ -87,9 +87,9 @@ app.post("/send-dates", (req, res) => {
 app.post("/send-info", (req, res) => {
   const data = req.body;
   console.log(data);
-  const query1 = `insert into dakar.customer_information (full_name, email_address, phone_number, check_in, check_out, day_count, room_count, guest_count, price, total_price) values (?,?,?,?,?,?,?,?,?,?);`;
+  const query1 = `insert into heroku_03639dc988b6688.customer_information (full_name, email_address, phone_number, check_in, check_out, day_count, room_count, guest_count, price, total_price) values (?,?,?,?,?,?,?,?,?,?);`;
   const query2 =
-    "insert into dakar.additional_options (personal_chef, personal_chef_count, atv_ride, atv_ride_count, goree_island, goree_island_count, cooking_lessons, cooking_lessons_count, safari, safari_count, renaissance, renaissance_count) values (?,?,?,?,?,?,?,?,?,?,?,?);";
+    "insert into heroku_03639dc988b6688.additional_options (personal_chef, personal_chef_count, atv_ride, atv_ride_count, goree_island, goree_island_count, cooking_lessons, cooking_lessons_count, safari, safari_count, renaissance, renaissance_count) values (?,?,?,?,?,?,?,?,?,?,?,?);";
 
   db.query(
     query1 + query2,
