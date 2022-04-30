@@ -82,19 +82,22 @@ const Form = () => {
       try {
         const { id } = paymentMethod;
 
-        const response = await axios.post("http://localhost:8083/payment", {
-          amount: parseInt(userData.priceTaxed * 100),
-          id,
-          description: `Customer Name: ${userData.fullName}, Email Address: ${
-            userData.emailAddress
-          }, Phone Number: ${userData.phoneNumber}, Room Count: ${
-            userData.roomCount
-          }, Guest Count: ${userData.guestCount}, Day Count: ${
-            userData.dayCount
-          },Check In: ${userData.checkIn}, Check Out: ${
-            userData.checkOut
-          }, Amount Paid: ${userData.price * 0.07 + userData.price} `
-        });
+        const response = await axios.post(
+          "https://dakar-travels.herokuapp.com/payment",
+          {
+            amount: parseInt(userData.priceTaxed * 100),
+            id,
+            description: `Customer Name: ${userData.fullName}, Email Address: ${
+              userData.emailAddress
+            }, Phone Number: ${userData.phoneNumber}, Room Count: ${
+              userData.roomCount
+            }, Guest Count: ${userData.guestCount}, Day Count: ${
+              userData.dayCount
+            },Check In: ${userData.checkIn}, Check Out: ${
+              userData.checkOut
+            }, Amount Paid: ${userData.price * 0.07 + userData.price} `
+          }
+        );
         await console.log(response);
 
         if (response.data.success) {

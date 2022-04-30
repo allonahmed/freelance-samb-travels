@@ -9,7 +9,7 @@ import Book from "./pages/Book";
 
 import "./App.css";
 
-const API_URL = "http://localhost:8083";
+const API_URL = "https://dakar-travels.herokuapp.com";
 
 function App() {
   const userData = useSelector((state) => state.reduxStore);
