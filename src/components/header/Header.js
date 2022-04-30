@@ -182,7 +182,7 @@ const Header = ({ cr, bg, border, full }) => {
               : { color: cr, "--bg": color[2] }
           }
         >
-          Book
+          Book Today
         </Link>
       </div>
     </div>

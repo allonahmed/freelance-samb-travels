@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 const corsOptions = {
-  origin: true,
+  origin: "*",
   credentials: true, //access-control-allow-credentials:true
   methods: ["GET", "POST"],
   optionSuccessStatus: 200
@@ -57,6 +57,17 @@ app.post("/room_count", (req, res) => {
   );
 });
 
+db.query(
+  `Select * from room_count where (COUNT + ${10}) > 6`,
+  (error, result) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(result);
+    }
+  }
+);
+
 app.post("/send-dates", (req, res) => {
   const check_in = req.body.check_in;
   const day_count = req.body.day_count;
@@ -76,7 +87,7 @@ app.post("/send-dates", (req, res) => {
       ).toLocaleDateString()}'; `;
   }
 
-  const query = `UPDATE heroku_03639dc988b6688.room_count SET count = count + ${room_count} where ${dates}`;
+  const query = `UPDATE room_count SET count = count + ${room_count} where ${dates}`;
   db.query(query, (error, result) => {
     if (error) res.send(error);
     else res.send(result);
@@ -87,9 +98,9 @@ app.post("/send-dates", (req, res) => {
 app.post("/send-info", (req, res) => {
   const data = req.body;
   console.log(data);
-  const query1 = `insert into heroku_03639dc988b6688.customer_information (full_name, email_address, phone_number, check_in, check_out, day_count, room_count, guest_count, price, total_price) values (?,?,?,?,?,?,?,?,?,?);`;
+  const query1 = `insert into customer_information (full_name, email_address, phone_number, check_in, check_out, day_count, room_count, guest_count, price, total_price) values (?,?,?,?,?,?,?,?,?,?);`;
   const query2 =
-    "insert into heroku_03639dc988b6688.additional_options (personal_chef, personal_chef_count, atv_ride, atv_ride_count, goree_island, goree_island_count, cooking_lessons, cooking_lessons_count, safari, safari_count, renaissance, renaissance_count) values (?,?,?,?,?,?,?,?,?,?,?,?);";
+    "insert into additional_options (personal_chef, personal_chef_count, atv_ride, atv_ride_count, goree_island, goree_island_count, cooking_lessons, cooking_lessons_count, safari, safari_count, renaissance, renaissance_count) values (?,?,?,?,?,?,?,?,?,?,?,?);";
 
   db.query(
     query1 + query2,
