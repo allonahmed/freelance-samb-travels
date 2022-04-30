@@ -71,7 +71,7 @@ const addOnsData = [
     img: personalchef,
     description:
       "Never worry about food or cooking when you stay with us. We offer a personal chef who provides breakfast and dinner for the duration of the stay!",
-    payment: "$40/Day"
+    payment: "$40/Day (per guest)"
   },
   {
     title: "ATV Ride",
@@ -92,7 +92,7 @@ const addOnsData = [
     img: chefteaches,
     description:
       "Learn native cuisines and recipes, taught by our chef in the comfort of our humble abode. You will go home ready to make new delicious, Senegalese dishes.",
-    payment: "$80/Session"
+    payment: "$50/Session"
   },
   {
     title: "Fathala Wildlife Reserve",

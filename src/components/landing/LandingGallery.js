@@ -10,12 +10,12 @@ import demoHills from "../../images/demohills.jpg";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const images = [landingHouse, heroImage, demoHills];
+// const images = [landingHouse, heroImage, demoHills];
 
-const LandingGallery = ({ onClose }) => {
+const LandingGallery = ({ onClose, gallery }) => {
   return (
     <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-      {images.map((image, id) => {
+      {gallery.map((image, id) => {
         return (
           <SwiperSlide key={id}>
             {" "}

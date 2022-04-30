@@ -1,13 +1,39 @@
+.chef-page {
+  height: calc(100vh - 75px);
+  width: 100%;
+  background: #000;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  object-fit: fill;
+  margin-top: 10vh;
+}
+
+.chef-page .lighten {
+  position: relative;
+  height: calc(100vh - 75px);
+  width: 100%;
+  background-color: rgba(104, 118, 104, 0.856);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 .chef-container {
-  margin-top: 20vh;
   height: calc(90vh - 75px);
-  width: 75%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 10px;
-  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.249);
+  /* background-color: rgba(255, 255, 255, 0.247); */
+  box-shadow: 0 0 14px 5px rgba(0, 0, 0, 0.249);
+  background-image: radial-gradient(
+    rgba(168, 168, 184, 0.447),
+    rgba(0, 0, 0, 0)
+  );
+  color: white;
+  text-shadow: 0 0 4px rgb(3, 3, 3);
 }
 .chef-title {
   margin-top: 20px;
@@ -19,27 +45,61 @@
     "Times New Roman", serif;
   position: relative;
 }
+.chef-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chef-details .chef-book-now {
+  font-family: "Roboto", Cambria, Cochin, Georgia, Times, "Times New Roman",
+    serif;
+  font-size: 26px;
+  border: none;
+  background: none;
+  color: white;
+  text-shadow: 0 0 4px rgb(3, 3, 3);
+  position: relative;
+  padding: 5px;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+}
 
-.chef-title:after {
+.chef-details .chef-book-now::after {
   content: "";
   position: absolute;
-  width: 90%;
-  bottom: 5px;
-  height: 1px;
-  background: #000;
-  left: 50%;
-  transform: translate(-50%, 0%);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  opacity: 1;
+  transition: opacity 300ms, transform 300ms;
 }
-.chef-title:before {
-  content: "";
-  position: absolute;
-  width: 90%;
-  top: 1px;
-  height: 1px;
-  background: #000;
-  left: 50%;
-  transform: translate(-50%, 0%);
+.chef-details .chef-book-now:hover::after {
+  animation: underlineButton 2s linear infinite;
 }
+@keyframes underlineButton {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  33% {
+    transform: translate3d(100%, 0, 0);
+  }
+  67% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.chef-details p {
+  line-height: 30px;
+  color: white;
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
 .chef-content {
   display: flex;
   justify-content: space-evenly;
@@ -48,10 +108,10 @@
 }
 
 .chef-image {
-  width: 40%;
+  width: 35%;
   height: auto;
-  transform: rotate(-10deg);
-  border: 5px solid black;
+  transform: rotate(7.5deg);
+  border: 5px solid white;
   box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.249);
 }
 .chef-details {

@@ -90,7 +90,7 @@ const Anemities = () => {
   const [controlledSwiper, setControlledSwiper] = useState(null);
 
   return (
-    <div className="anemities-container">
+    <div className="anemities-container" id="anemities">
       <h3 className="underline" style={{ "--bg": "white" }}>
         Anemities
       </h3>

@@ -67,7 +67,7 @@ const Form = () => {
       dispatch(updateError("All fields required!"));
     }
   };
-
+  // console.log((userData.priceTaxed * 100).toFixed(2));
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Validating information:");
@@ -83,7 +83,7 @@ const Form = () => {
         const { id } = paymentMethod;
 
         const response = await axios.post("http://localhost:8083/payment", {
-          amount: userData.priceTaxed * 100,
+          amount: parseInt(userData.priceTaxed * 100),
           id,
           description: `Customer Name: ${userData.fullName}, Email Address: ${
             userData.emailAddress
@@ -99,38 +99,6 @@ const Form = () => {
 
         if (response.data.success) {
           console.log("success");
-          axios
-            .post("http://localhost:8083/send-info", {
-              full_name: userData.fullName,
-              email_address: userData.emailAddress,
-              phone_number: userData.phoneNumber,
-              check_in: userData.checkIn,
-              check_out: userData.checkOut,
-              day_count: userData.dayCount,
-              room_count: userData.roomCount,
-              guest_count: userData.guestCount,
-              price: userData.price,
-              total_price: userData.priceTaxed,
-              personal_chef: userData.personalChef,
-              personal_chef_count: userData.personalChefCount,
-              atv_ride: userData.atvRide,
-              atv_ride_count: userData.atvCount,
-              goree_island: userData.goree,
-              goree_island_count: userData.goreeCount,
-              cooking_lessons: userData.lessons,
-              cooking_lessons_count: userData.lessonsCount,
-              safari: userData.safari,
-              safari_count: userData.safariCount,
-              renaissance: userData.renaissance,
-              renaissance_count: userData.renaissanceCount
-            })
-            .then((resp) => {
-              if (resp.data) {
-                console.log(resp.data);
-              } else {
-                console.log("somethign went wrogn!");
-              }
-            });
           dispatch(updateSuccess(true));
         }
       } catch (error) {
@@ -141,11 +109,6 @@ const Form = () => {
       dispatch(updateError(error.message));
     }
   };
-  //send customer information to db
-  useEffect(() => {
-    console.log(userData.paymentSuccess);
-  }, [userData.paymentSuccess]);
-  console.log(userData);
 
   return (
     <div className="form">
@@ -189,7 +152,7 @@ const Form = () => {
             <CardElement options={CARD_OPTIONS} />
           </div>
         </fieldset>
-        <button className="payment-button">Pay</button>
+        <button className="payment-button">Pay ${userData.priceTaxed}</button>
       </form>
     </div>
   );

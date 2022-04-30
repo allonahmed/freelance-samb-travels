@@ -6,6 +6,8 @@ import "../App.css";
 import Header from "../components/header/Header";
 import HouseGallery from "../components/HouseGallery";
 import PersonalChef from "../components/PersonalChef";
+import Attractions from "../components/Attractions";
+import Contact from "../components/Contact";
 
 function Main() {
   return (
@@ -15,9 +17,9 @@ function Main() {
       <Offers />
       <ParallaxHouse />
       <Anemities />
-      <HouseGallery />
       <PersonalChef />
-      <div style={{ height: "100vh", background: "black" }}></div>
+      <Attractions />
+      <Contact />
     </div>
   );
 }

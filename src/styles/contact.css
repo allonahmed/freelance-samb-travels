@@ -1,0 +1,210 @@
+.contact-page {
+  height: calc(100vh - 75px);
+  width: 100%;
+  background: #000;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  object-fit: fill;
+  margin-top: 10vh;
+  position: relative;
+}
+.contact-page .lighten {
+  position: relative;
+  height: calc(100vh - 75px);
+  width: 100%;
+  background-color: rgba(104, 118, 104, 0.856);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 14px 5px rgba(0, 0, 0, 0.249);
+  background-image: radial-gradient(
+    rgba(168, 168, 184, 0.447),
+    rgba(0, 0, 0, 0)
+  );
+  color: white;
+  text-shadow: 0 0 4px rgb(3, 3, 3);
+}
+.map-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about-us-heading {
+  font-size: 40px;
+  font-family: "Satisfy", "Roboto", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+.about-item {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  height: 90px;
+  padding: 10px 0;
+  align-items: center;
+}
+.about-content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 10px;
+}
+.about-title {
+  font-size: 18px;
+  text-shadow: 0 0 8px black;
+  display: flex;
+  padding: 5px 0;
+}
+.about-description {
+  display: flex;
+  padding: 5px 0;
+  color: white;
+}
+.about-icon {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+iframe {
+  height: 20%;
+  width: 70%;
+  margin: 10%;
+  /* border-radius: 15px; */
+  border: 2px solid white;
+  box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.305);
+  opacity: 0.8;
+  background-color: none;
+}
+iframe:hover {
+  opacity: 1;
+  box-shadow: -2px -2px 8px 1px rgba(0, 0, 0, 0.305);
+}
+.contact-form {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.contact-form::after {
+  content: "";
+  height: 70%;
+  width: 1px;
+  background-color: white;
+  left: 0;
+  position: absolute;
+}
+
+.contact-header {
+  font-size: 40px;
+  font-family: "Satisfy", "Roboto", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  /* height: 40%; */
+}
+.form-content {
+  width: 100%;
+  /* height: 60%; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+.contact-form .section {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 10px 0;
+}
+
+.contact-form .section label {
+  padding: 5px 0;
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+  font-size: 18px;
+}
+.contact-form .section input,
+textarea {
+  height: 38px;
+  border-radius: 5px;
+  border: 1px solid rgb(160, 160, 160);
+  background: #eff2f7;
+  padding-left: 10px;
+}
+.contact-form .section input:focus {
+  border-color: green;
+}
+
+.contact-form .section input::placeholder,
+textarea::placeholder {
+  opacity: 0.5;
+}
+
+textarea {
+  height: 114px;
+  padding: 10px;
+}
+.submit-form {
+  font-family: "Roboto", Cambria, Cochin, Georgia, Times, "Times New Roman",
+    serif;
+  margin-top: 20px;
+  font-size: 26px;
+  border: none;
+  background: none;
+  color: white;
+  text-shadow: 0 0 4px rgb(3, 3, 3);
+  position: relative;
+  padding: 5px;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.submit-form::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  opacity: 1;
+  transition: opacity 300ms, transform 300ms;
+}
+.submit-form:hover::after {
+  animation: underlineButton 2s linear infinite;
+}
+@keyframes underlineButton {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  33% {
+    transform: translate3d(100%, 0, 0);
+  }
+  67% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}

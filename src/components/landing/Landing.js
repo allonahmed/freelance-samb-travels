@@ -62,24 +62,6 @@ const Landing = () => {
   return (
     <div className="landing" id="landing">
       <div className="landing-slide-container">
-        <PortalWithState
-          closeOnOutsideClick
-          closeOnEsc
-          node={document && document.getElementById("modal")}
-          onOpen={() => setOpen(true)}
-          onClose={() => setOpen(false)}
-        >
-          {({ openPortal, closePortal, isOpen, portal }) => (
-            <React.Fragment>
-              <div className="collections-landing" onClick={openPortal}>
-                {/* <p>view</p> */}
-                <CollectionsIcon className="collections-icon" />
-                <p>gallery</p>
-              </div>
-              {portal(<LandingGallery onClose={closePortal} />)}
-            </React.Fragment>
-          )}
-        </PortalWithState>
         <div className="darken" id="darken"></div>{" "}
         {/* to darken the background image */}
         {[color[0], color[1], color[2]].map((color, idx) => (

@@ -14,6 +14,7 @@ const color = ["#00853f", "#fdef42", "#e31b23"];
 
 const Header = ({ cr, bg, border, full }) => {
   const [clicked, setClicked] = useState(false);
+  const [clicked1, setClicked1] = useState(false);
   const [openNav, setNav] = useState(false);
   const [scrollY, setScoll] = useState(0);
 
@@ -79,19 +80,54 @@ const Header = ({ cr, bg, border, full }) => {
             : {}
         }
       >
-        <HashLink
-          to="/#info"
-          className="nav-item nav-item1"
-          style={
-            scrollY >= 100
-              ? { color: "rgb(1,1,1)", "--bg": color[0] }
-              : { color: cr, "--bg": color[0] }
-          }
+        <div
+          className="language-container"
+          onMouseEnter={() => setClicked1(true)}
+          onMouseLeave={() => setClicked1(false)}
+          onClick={() => setClicked1(!clicked1)}
         >
-          Features
-        </HashLink>
+          <div
+            className="language-dropdown nav-item nav-item2"
+            style={
+              scrollY >= 100
+                ? { color: "rgb(1,1,1)", "--bg": color[0] }
+                : { color: cr, "--bg": color[0] }
+            }
+          >
+            {" "}
+            <p style={{ padding: "2px" }}>Features</p>{" "}
+            {clicked1 ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </div>
+          <div
+            className="dropdown-content"
+            style={clicked1 ? { display: "flex" } : { display: "none" }}
+          >
+            <HashLink
+              to="/#house"
+              className="dropdown-item nav-item"
+              style={{ "--bg": "black" }}
+            >
+              Gallery
+            </HashLink>
+            <HashLink
+              to="/#attractions"
+              className="dropdown-item nav-item"
+              style={{ "--bg": "black" }}
+              scrollOffset="100"
+            >
+              Explore
+            </HashLink>
+            <HashLink
+              to="/#anemities"
+              className="dropdown-item nav-item"
+              style={{ "--bg": "black" }}
+            >
+              Anemities
+            </HashLink>
+          </div>
+        </div>
         <HashLink
-          to="/#info"
+          to="/#contact"
           style={
             scrollY >= 100
               ? { color: "rgb(1,1,1)", "--bg": color[1] }

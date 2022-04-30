@@ -13,15 +13,15 @@
   width: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(1, 1, 1, 0.9) 0%,
-    rgba(1, 1, 1, 0.3) 70%,
+    rgba(1, 1, 1, 0.74) 0%,
+    rgba(1, 1, 1, 0.244) 70%,
     rgba(1, 1, 1, 0) 100%
   );
   z-index: 1;
 }
 .landing-slide-container {
   overflow: hidden;
-  height: calc(90vh);
+  height: calc(95vh);
   width: 100%;
   z-index: 1;
   position: relative;
@@ -183,7 +183,7 @@
   width: 15px;
   border-radius: 50%;
   border: 1px solid white;
-  right: 10px;
+  right: 20px;
   top: 50%;
   cursor: pointer;
   filter: grayscale(100%);
@@ -218,10 +218,11 @@
 }
 
 .mySwiper {
-  position: absolute !important;
-  top: 75px;
+  position: fixed !important;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.796);
   left: 0;
-  height: calc(100vh - 75px);
+  height: calc(100vh);
   width: 100%;
   z-index: 200 !important;
 }
@@ -232,18 +233,24 @@
   display: flex !important;
   justify-content: center;
   align-items: center;
-  position: relative !important;
+  /* position: relative !important; */
 }
 
 .mySwiper .swiper-slide img {
   width: 80%;
   height: 80%;
   object-fit: cover;
+  border: 5px solid white;
+}
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: white !important;
+  margin: 0 5%;
 }
 .close-icon {
   position: absolute !important;
-  right: 10%;
-  top: 10%;
+  right: 5%;
+  top: 5%;
   z-index: 100 !important;
   color: white !important;
   font-size: 40px !important;
