@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 const corsOptions = {
-  origin: "*",
+  origin: true,
   credentials: true, //access-control-allow-credentials:true
   methods: ["GET", "POST"],
   optionSuccessStatus: 200
@@ -66,17 +66,6 @@ app.post("/", (req, res) => {
     }
   );
 });
-
-db.query(
-  `Select * from room_count where (COUNT + ${10}) > 6`,
-  (error, result) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log(result);
-    }
-  }
-);
 
 app.post("/send-dates", (req, res) => {
   const check_in = req.body.check_in;
