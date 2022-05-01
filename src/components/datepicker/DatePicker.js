@@ -28,8 +28,8 @@ const DatePicker = () => {
   //get days that are unavailable
   useEffect(() => {
     axios
-      .post("https://dakar-travels.herokuapp.com/room_count/", {
-        roomCount: 2
+      .post("https://dakar-travels.herokuapp.com/", {
+        roomCount: data.roomCount
       })
       .then((res) => {
         if (res.data) {

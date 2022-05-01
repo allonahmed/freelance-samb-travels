@@ -1,4 +1,4 @@
 [[redirects]]
 from = '/*'
-to = '/index.htnl'
+to = '/index.html'
 status = 200

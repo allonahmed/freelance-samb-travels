@@ -4,8 +4,8 @@ const stripe = require("stripe")(process.env.SECRET_KEY);
 const bodyParser = require("body-parser");
 const addDays = require("date-fns/addDays");
 const cors = require("cors");
-const db = require("./models/dakarSchema");
-
+// const db = require("./models/dakarSchema");
+const mysql = require("mysql");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -17,6 +17,16 @@ const corsOptions = {
   optionSuccessStatus: 200
 };
 app.use(cors(corsOptions));
+
+const db = mysql.createConnection({
+  host: "us-cdbr-east-05.cleardb.net",
+  user: "ba65f2d258d106",
+  password: "306e281d",
+  database: "heroku_03639dc988b6688",
+  multipleStatements: true
+});
+
+// mysql://ba65f2d258d106:306e281d@us-cdbr-east-05.cleardb.net/heroku_03639dc988b6688?reconnect=true
 
 app.post("/payment", cors(), async (req, res) => {
   let { amount, id, description } = req.body;
@@ -43,7 +53,7 @@ app.post("/payment", cors(), async (req, res) => {
 });
 
 //make this a post request so we can pick what the count should be;
-app.post("/room_count", (req, res) => {
+app.post("/", (req, res) => {
   const roomCount = req.body.roomCount;
   db.query(
     `Select * from room_count where (COUNT + ${roomCount}) > 6`,
@@ -137,6 +147,7 @@ app.post("/send-info", (req, res) => {
   );
 });
 
-app.listen(process.env.PORT || 8083, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
   console.log(`You are connected`);
 });
