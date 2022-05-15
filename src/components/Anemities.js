@@ -26,7 +26,7 @@ const data = [
   {
     title: "Wifi",
     icon: <CellWifi className="icon" />,
-    desciption: "Unlimited access to wifi"
+    desciption: "Umlimited access to internet connection"
   },
   {
     title: "Kitchen",
@@ -37,50 +37,50 @@ const data = [
   {
     title: "Air Conditioning",
     icon: <AcUnit className="icon" />,
-    desciption: "AC unit available",
+    desciption: "Air conditioning included in every room",
     type: "free"
   },
   {
     title: "Cleaning Service",
     icon: <DryCleaning className="icon" />,
-    desciption: "Cleaning service",
+    desciption: "All rooms cleaned before and after stay",
     type: "free"
   },
   {
     title: "Television",
     icon: <Tv className="icon" />,
-    desciption: "Full access to television",
+    desciption: "Full access to smart TVs",
     type: "free"
   },
   {
-    title: "Free Parking",
+    title: "Parking",
     icon: <LocalParking className="icon" />,
-    desciption: "Free parking available",
+    desciption: "Plenty of room for free parking",
     type: "free"
   },
   {
     title: "Security",
     icon: <Security className="icon" />,
-    desciption: "Home Security",
+    desciption: "House equipped with security systems",
     type: "free"
   },
   {
     title: "Personal Chef",
     icon: <SoupKitchen className="icon" />,
-    desciption: "Access to personal chef",
+    desciption: "Personal chef access for breakfast and dinner",
     type: "paid"
   },
   {
     title: "Tour Guide",
     icon: <TravelExplore className="icon" />,
-    desciption: "Explore city with travel guide",
+    desciption: "Explore the city with certified travel guide",
     type: "paid"
   },
 
   {
     title: "Cooking Lessons",
     icon: <LocalDining className="icon" />,
-    desciption: "Personal Chef teaches cooking classes",
+    desciption: "Access in-house Senegalese cooking lessons",
     type: "paid"
   }
 ];
@@ -117,7 +117,8 @@ const Anemities = () => {
           return (
             <SwiperSlide key={id}>
               {ele.icon}
-              <p
+              <div
+                className="icon-description"
                 style={
                   controlledSwiper
                     ? active === id
@@ -126,13 +127,9 @@ const Anemities = () => {
                     : {}
                 }
               >
-                {ele.type === "paid" ? (
-                  <Add className="icon" style={{ color: "#e31b23" }} />
-                ) : (
-                  <Check className="icon" style={{ color: "#00853f" }} />
-                )}{" "}
-                {ele.desciption}
-              </p>
+                <h2> {ele.title}</h2>
+                <p> {ele.desciption}</p>
+              </div>
             </SwiperSlide>
           );
         })}
@@ -159,15 +156,9 @@ const Anemities = () => {
             <SwiperSlide key={id}>
               {ele.icon}
               {ele.type === "paid" ? (
-                <Add
-                  className="icons"
-                  style={{ color: "#e31b23", fontSize: "15px" }}
-                />
+                <Add className="icons" style={{ color: "#e31b23" }} />
               ) : (
-                <Check
-                  className="icons"
-                  style={{ color: "#00853f", fontSize: "15px" }}
-                />
+                <Check className="icons" style={{ color: "#00853f" }} />
               )}
             </SwiperSlide>
           );

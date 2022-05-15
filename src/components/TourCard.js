@@ -9,8 +9,10 @@ const TourCard = ({ id, t }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <h5 className="attraction-title">{t.title}</h5>
-      <p className="attraction-description">{t.description}</p>
+      <div className="attraction-details">
+        <h5 className="attraction-title">{t.title}</h5>
+        <p className="attraction-description">{t.description}</p>
+      </div>
       <img
         className="attraction-images"
         src={t.image}

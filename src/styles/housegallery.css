@@ -36,9 +36,9 @@
   font-family: "Satisfy", Cambria, Cochin, Georgia, Times, "Times New Roman",
     serif;
   color: white;
-  font-size: 40px;
+  font-size: 2.7vw;
   position: relative;
-  padding: 10px;
+  padding: 20px;
   width: 100%;
   text-align: center;
 }
@@ -46,11 +46,11 @@
 .house-container .lighten .house-info p {
   font-family: "Roboto", Cambria, Cochin, Georgia, Times, "Times New Roman",
     serif;
-  width: 75%;
-  line-height: 30px;
+  width: 70%;
+  line-height: 1.9vw;
   color: white;
-  font-size: 18px;
-  padding-bottom: 10px;
+  font-size: 1.3vw;
+  padding-bottom: 40px;
 }
 .house-info {
   display: flex;
@@ -63,45 +63,23 @@
 .house-info .house-book-now {
   font-family: "Roboto", Cambria, Cochin, Georgia, Times, "Times New Roman",
     serif;
-  font-size: 26px;
+  font-size: 1.5vw;
   border: none;
   background: none;
   color: white;
   text-shadow: 0 0 4px rgb(3, 3, 3);
+  box-shadow: 2px 2px 10px 1px rgb(0 0 0 / 9%);
   position: relative;
-  padding: 5px;
-  border-radius: 15px;
-  overflow: hidden;
+  padding: 5px 10px;
+  border: 2px solid #f8f8f8;
+  border-radius: 5px;
+  transition: transform 0.3s linear;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.house-info .house-book-now::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: white;
-  opacity: 1;
-  transition: opacity 300ms, transform 300ms;
-}
-.house-info .house-book-now:hover::after {
-  animation: underlineButton 2s linear infinite;
-}
-@keyframes underlineButton {
-  0% {
-    transform: translate3d(-100%, 0, 0);
-  }
-  33% {
-    transform: translate3d(100%, 0, 0);
-  }
-  67% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
+.house-info .house-book-now:hover {
+  transform: scale(1.05);
 }
 
 .house-container .gallery-container {
@@ -126,51 +104,113 @@
 }
 .click-gallery,
 .hovered-gallery {
-  font-size: 24px;
+  font-size: 1.5vw;
   text-shadow: 0 0 6px black;
   display: flex;
-  width: 120px;
+  /* width: 120px; */
   justify-content: center;
   align-items: center;
   position: relative;
-  border-radius: 15px;
-  padding: 5px;
-  overflow: hidden;
+  border-radius: 5px;
+  padding: 5px 10px;
   cursor: pointer;
-}
-.hovered-gallery::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: white;
-  opacity: 1;
-  transition: opacity 300ms, transform 300ms;
-  animation: underlineButton 2s linear infinite;
+  border: 2px solid white;
+  background: rgba(0, 0, 0, 0.385);
+  transform: scale(1.1) rotate(-7.5deg);
+  transition: transform 0.3s linear;
 }
 
-@keyframes underlineButton {
-  0% {
-    transform: translate3d(-100%, 0, 0);
-  }
-  33% {
-    transform: translate3d(100%, 0, 0);
-  }
-  67% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
+.hovered-gallery:hover {
+  transform: scale(1.05) rotate(-7.5deg);
 }
+
 .last {
   cursor: pointer;
 }
 
+@media screen and (max-width: 2200px) {
+  .home-slider-image {
+    width: 75%;
+  }
+}
 @media screen and (max-width: 1600px) {
   .home-slider-image {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .house-content {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .gallery-container {
+    width: 90%;
+    height: 45%;
+  }
+  .house-info {
+    width: 90%;
+    height: 45%;
+  }
+  .home-slider-image {
+    width: 110%;
+  }
+  .house-container .lighten .house-info p {
+    font-size: calc(var(--fs) - 2px);
+    line-height: calc(var(--fs) + 3px);
     width: 80%;
+    padding-bottom: 20px;
+  }
+  .house-container h2 {
+    font-size: calc(var(--fs) + 15px);
+    padding-bottom: 10px;
+  }
+  .house-info .house-book-now {
+    font-size: calc(var(--fs) - 1px);
+    border: 1px solid white;
+  }
+  .click-gallery,
+  .hovered-gallery {
+    font-size: calc(var(--fs) - 1px);
+    border: 2px solid white;
+    background: rgba(0, 0, 0, 0.506);
+  }
+}
+@media screen and (max-width: 800px) {
+  .home-slider-image {
+    width: 120%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .home-slider-image {
+    width: 130%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .home-slider-image {
+    width: 140%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .house-info {
+    height: 50%;
+  }
+  .house-container .lighten .house-info p {
+    font-size: calc(var(--fs) - 2px);
+    line-height: calc(var(--fs) + 2px);
+    width: 100%;
+  }
+  .house-container h2 {
+    font-size: calc(var(--fs) + 10px);
+  }
+  .house-info .house-book-now {
+    font-size: calc(var(--fs) - 2px);
+  }
+  .home-slider-image {
+    width: 150%;
+  }
+  .click-gallery,
+  .hovered-gallery {
+    font-size: calc(var(--fs) - 2px);
+    border: 1px solid white;
   }
 }

@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 const corsOptions = {
-  origin: true,
+  origin: "https://precious-hotteok-a1a8fa.netlify.app",
   credentials: true, //access-control-allow-credentials:true
   methods: ["GET", "POST"],
   optionSuccessStatus: 200
@@ -136,7 +136,7 @@ app.post("/send-info", (req, res) => {
   );
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 6000;
 app.listen(PORT, () => {
-  console.log(`You are connected`);
+  console.log(`You are connected on port ${PORT}`);
 });

@@ -27,6 +27,7 @@ import {
 import { PortalWithState } from "react-portal";
 import "swiper/css";
 import "swiper/css/effect-cards";
+import { Link } from "react-router-dom";
 
 const images = [
   house1,
@@ -112,7 +113,7 @@ const ParallaxHouse = () => {
                     />
                     <div
                       className={hovered ? "hovered-gallery" : "click-gallery"}
-                      style={{ transform: "rotate(-7.5deg)" }}
+                      // style={{ transform: "rotate(-7.5deg)" }}
                       onMouseEnter={() => {
                         setHovered(true);
                       }}
@@ -121,7 +122,7 @@ const ParallaxHouse = () => {
                       }}
                       onClick={openPortal}
                     >
-                      See more
+                      View Gallery
                     </div>
                     {portal(
                       <LandingGallery onClose={closePortal} gallery={images} />
@@ -131,18 +132,21 @@ const ParallaxHouse = () => {
               </PortalWithState>
             </div>
             <div className="house-info">
-              <h2>About Dakar's Rental</h2>
+              <h2>About Samb's Villa</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Click <a>here</a> for directions
+                The luxurious villa of Amy is located in Cambérène, one of the
+                19 neighborhoods in the Capital of Dakar, Senegal. This villa is
+                walking steps of the Atlantic Ocean with a beautiful view.
+                Easily accessible by the auto route of the VDN which takes you
+                the heart of the city in 12-19mins depending on the traffic. In
+                addition a 49 min drive to the Blaise Dianne international
+                airport(51km). One of the main zones of attraction ( la Corniche
+                Ouest) which is 14 mins. On the east side ( la Corniche Est )
+                you have the centre of the city which is 13 minutes away by car.
               </p>
-              <button className="house-book-now">Book Now</button>
+              <Link to="/book" className="house-book-now">
+                Book Now
+              </Link>
             </div>
           </div>
         </div>

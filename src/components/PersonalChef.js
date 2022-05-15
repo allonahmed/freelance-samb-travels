@@ -4,6 +4,8 @@ import { Parallax } from "react-parallax";
 import bgcook from "../images/bgcook.jpg";
 
 import "../styles/chef.css";
+import { Link } from "@mui/material";
+import { HashLink } from "react-router-hash-link";
 const PersonalChef = () => {
   return (
     <div className="chef-page" id="chef">
@@ -21,16 +23,22 @@ const PersonalChef = () => {
                   versatile. Whether you want your favorite comfort meal or you
                   want a native Senegalese cuisine, our chef has you covered! In
                   addition, if you want to learn how to make some of our
-                  cultural cuisines such as our Jollof rice (which is renowned
-                  as the best in the world) , Fataya (Empanada), Thiakry( sweet
-                  cream with grains) a national favorit many other options as
-                  well. we offer cooking lessons so you can go home with a piece
-                  of Dakar! If there are any dietary restrictions we should know
-                  about, please contact us!
+                  cultural cuisines such as our Jollof rice , Fataya , Thiakry,
+                  we offer cooking lessons so you can go home with a piece of
+                  Dakar! If there are any dietary restrictions we should know
+                  about, please{" "}
+                  <HashLink to="/#contact" style={{ color: "white" }}>
+                    {" "}
+                    contact us!
+                  </HashLink>
                 </p>
-                <button className="chef-book-now">Book Now</button>
+                <Link to="/book" className="chef-book-now">
+                  Book Now
+                </Link>
               </div>
-              <img className="chef-image" src={knives} />
+              <div className="chef-gallery-container">
+                <img className="chef-image" src={knives} />
+              </div>
             </div>
           </div>
         </div>

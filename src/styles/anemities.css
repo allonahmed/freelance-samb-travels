@@ -1,11 +1,11 @@
 .anemities-container {
-  border-radius: 10px;
   margin-top: -10vh;
+  margin-bottom: 10vh;
   width: 75%;
   background: rgb(248, 248, 248);
   height: 60vh;
   color: black;
-  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.249);
+  box-shadow: inset 2px 2px 10px 1px rgba(0, 0, 0, 0.249);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,10 +15,12 @@
 }
 .legend {
   position: absolute;
-  bottom: 5px;
+  bottom: 0px;
   right: 0;
   font-size: 10px;
   display: flex;
+  opacity: 0.7;
+  z-index: 10;
 }
 .legend-items {
   display: flex;
@@ -30,7 +32,7 @@
   margin-right: 3px;
 }
 .anemities-container h3 {
-  font-size: 40px;
+  font-size: 2.7vw;
   display: flex;
   align-items: center;
   height: 10vh;
@@ -47,8 +49,8 @@
 .anemities-swiper {
   height: 70%;
   width: 90%;
+  padding-bottom: 40px;
   position: relative;
-  /* border: 1px solid red; */
 }
 
 .anemities-swiper .swiper-slide {
@@ -58,29 +60,41 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 .anemities-swiper .swiper-slide .icon {
-  font-size: 80px;
+  margin-top: 40px;
+  font-size: 5vw;
   transition: font-size 0.3s ease-in;
   color: rgba(136, 136, 136, 0.677);
 }
-.anemities-swiper .swiper-slide p {
+.anemities-swiper .swiper-slide .icon-description {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   color: black;
+  width: 100vw;
+  font-size: calc(var(--fs) - 3px);
+  text-align: center;
+  position: absolute;
+  bottom: 0%;
+}
+.anemities-swiper .swiper-slide .icon-description h2 {
+  font-weight: 900;
+  padding-bottom: 5px;
 }
 .anemities-swiper .swiper-slide p .icon {
   font-size: 20px;
   margin-right: 5px;
 }
 .anemities-swiper .swiper-slide-active .icon {
-  /* height: 30%; */
-  /* width: 40%; */
-  font-size: 200px;
+  margin-top: 0px;
+  font-size: 12vw;
   color: black;
 }
-.swiper-button-next,
-.swiper-button-prev {
+.anemities-swiper .swiper-button-next,
+.anemities-swiper .swiper-button-prev {
   color: rgb(31, 31, 31);
   transition: transform 0.5s linear;
 }
@@ -105,11 +119,122 @@
   justify-content: center;
 }
 .anemities-thumb-swiper .swiper-slide .icon {
-  font-size: 30px;
+  font-size: 2vw;
   color: rgba(136, 136, 136, 0.677);
   cursor: pointer;
 }
 
 .anemities-thumb-swiper .swiper-slide-thumb-active .icon {
   color: black;
+}
+.anemities-thumb-swiper .icons {
+  font-size: 1vw;
+}
+@media screen and (max-width: 1400px) {
+  .anemities-container h3 {
+    font-size: 3vw;
+  }
+  .anemities-swiper .swiper-slide .icon {
+    font-size: 6vw;
+  }
+  .anemities-swiper .swiper-slide-active .icon {
+    font-size: 13.5vw;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .anemities-container h3 {
+    font-size: 3vw;
+  }
+  .anemities-swiper .swiper-slide .icon {
+    font-size: 7vw;
+  }
+  .anemities-swiper .swiper-slide-active .icon {
+    font-size: 15vw;
+  }
+  .anemities-thumb-swiper .swiper-slide .icon {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 900px) {
+  .anemities-container {
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    width: 100%;
+    height: 50vh;
+  }
+  .legend {
+    right: 5%;
+    font-size: 9px;
+  }
+  .legend-items .icons {
+    font-size: 10px;
+    margin-right: 2px;
+  }
+  .anemities-container h3 {
+    font-size: calc(var(--fs) + 20px);
+  }
+  .anemities-swiper .swiper-slide .icon {
+    font-size: 10vw;
+  }
+  .anemities-swiper .swiper-slide-active .icon {
+    font-size: 20vw;
+  }
+  .anemities-thumb-swiper .swiper-slide .icon {
+    font-size: calc(var(--fs) + 8px);
+  }
+  .anemities-thumb-swiper .icons {
+    font-size: calc(var(--fs) - 2px);
+  }
+  .anemities-swiper .swiper-button-next:after,
+  .anemities-swiper .swiper-button-prev:after {
+    font-size: 30px !important;
+  }
+  .anemities-swiper .swiper-button-next:after {
+    margin-left: 15px;
+  }
+  .anemities-swiper .swiper-button-prev:after {
+    margin-right: 15px;
+  }
+  .anemities-swiper {
+    height: 70%;
+    width: 100%;
+    position: relative;
+  }
+  .anemities-swiper .swiper-slide .icon-description {
+    bottom: 0%;
+  }
+  .anemities-swiper .swiper-slide .icon-description p {
+    font-size: calc(var(--fs) - 3px);
+  }
+  .anemities-swiper .swiper-slide .icon-description h2 {
+    font-size: calc(var(--fs));
+  }
+}
+@media screen and (max-width: 700px) {
+  .anemities-thumb-swiper .swiper-slide .icon {
+    font-size: calc(var(--fs) + 1px);
+  }
+  .anemities-thumb-swiper .icons {
+    font-size: calc(var(--fs) - 3px);
+  }
+  .anemities-swiper .swiper-slide .icon {
+    font-size: 12vw;
+  }
+  .anemities-swiper .swiper-slide-active .icon {
+    font-size: 25vw;
+  }
+}
+@media screen and (max-width: 450px) {
+  .anemities-swiper .swiper-slide .icon-description p {
+    font-size: calc(var(--fs) - 3px);
+  }
+  .anemities-swiper .swiper-slide .icon-description h2 {
+    font-size: calc(var(--fs) - 1px);
+  }
+  .anemities-thumb-swiper .swiper-slide .icon {
+    font-size: calc(var(--fs));
+  }
+  .anemities-thumb-swiper .icons {
+    font-size: calc(var(--fs) - 4px);
+  }
 }

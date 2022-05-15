@@ -5,6 +5,7 @@
   --yellow: #fdef42;
   --green: #00853f;
   --red: #e31b23;
+  --fs: 26px;
 }
 *,
 *::before,
@@ -17,11 +18,33 @@
   scroll-behavior: smooth;
 }
 body {
-  background: rgb(248, 248, 248);
+  background: rgb(43, 43, 43);
 }
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: rgb(248, 248, 248);
+}
+
+@media only screen and (max-width: 2200px) {
+  :root {
+    --fs: 20px;
+  }
+}
+
+@media only screen and (max-width: 1800px) {
+  :root {
+    --fs: 18px;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  :root {
+    --fs: 17px;
+  }
+}
+@media only screen and (max-width: 1400px) {
+  :root {
+    --fs: 16px;
+  }
 }

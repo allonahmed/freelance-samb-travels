@@ -22,7 +22,7 @@ const tour = [
   },
   {
     image: monument,
-    title: "Monument of the Renaissance",
+    title: "Renaissance Monument",
     description:
       "Personal tour to the largest monument in Africa, the African Renaissance Monument, which symbolizes the rebirth of Africa. Learn more about the 49 meter bronze statue's history.",
     link: "https://en.wikipedia.org/wiki/African_Renaissance_Monument"
@@ -51,19 +51,7 @@ const Attractions = () => {
       </div>
       <div className="attraction-cards-container">
         {tour.map((t, id) => {
-          return (
-            <TourCard
-              t={t}
-              key={id}
-              //   hovered={hovered}
-              //   enter={() => {
-              //     setHovered(true);
-              //   }}
-              //   leave={() => {
-              //     setHovered(false);
-              //   }}
-            />
-          );
+          return <TourCard t={t} key={id} />;
         })}
       </div>
     </div>

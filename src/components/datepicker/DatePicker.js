@@ -21,7 +21,6 @@ const DatePicker = () => {
     }
   ]);
   const [unavailable, setUnavailable] = useState(); // days we want disabled
-  console.log(state);
   const data = useSelector((state) => state.reduxStore);
   const dispatch = useDispatch();
 
@@ -50,7 +49,6 @@ const DatePicker = () => {
   for (let i = 0; i < data.dayCount; i += 1) {
     dates.push(addDays(state[0].startDate, i).toLocaleDateString());
   }
-  console.log(dates);
 
   //updates our global state check in and check out (this is what we will use to send to db)
   useEffect(() => {

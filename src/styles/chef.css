@@ -6,7 +6,6 @@
   justify-content: center;
   background-size: cover;
   object-fit: fill;
-  margin-top: 10vh;
 }
 
 .chef-page .lighten {
@@ -19,7 +18,7 @@
   justify-content: space-evenly;
 }
 .chef-container {
-  height: calc(90vh - 75px);
+  height: 90%;
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -40,7 +39,7 @@
   padding: 10px;
   width: 100%;
   text-align: center;
-  font-size: 40px;
+  font-size: 2.7vw;
   font-family: "Satisfy", "Roboto", Cambria, Cochin, Georgia, Times,
     "Times New Roman", serif;
   position: relative;
@@ -49,71 +48,146 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 50%;
 }
 .chef-details .chef-book-now {
   font-family: "Roboto", Cambria, Cochin, Georgia, Times, "Times New Roman",
     serif;
-  font-size: 26px;
+  font-size: 1.5vw;
   border: none;
   background: none;
+  text-decoration: none;
   color: white;
   text-shadow: 0 0 4px rgb(3, 3, 3);
+  box-shadow: 2px 2px 10px 1px rgb(0 0 0 / 9%);
   position: relative;
-  padding: 5px;
-  border-radius: 15px;
-  overflow: hidden;
+  padding: 5px 10px;
+  border: 2px solid #f8f8f8;
+  border-radius: 5px;
+  transition: transform 0.3s linear;
   cursor: pointer;
 }
+.chef-details .chef-book-now:hover {
+  transform: scale(1.05);
+}
 
-.chef-details .chef-book-now::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: white;
-  opacity: 1;
-  transition: opacity 300ms, transform 300ms;
-}
-.chef-details .chef-book-now:hover::after {
-  animation: underlineButton 2s linear infinite;
-}
-@keyframes underlineButton {
-  0% {
-    transform: translate3d(-100%, 0, 0);
-  }
-  33% {
-    transform: translate3d(100%, 0, 0);
-  }
-  67% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
-}
 .chef-details p {
-  line-height: 30px;
+  line-height: 1.9vw;
   color: white;
-  font-size: 18px;
-  padding-bottom: 20px;
+  font-size: 1.3vw;
+  padding-bottom: 40px;
+  width: 70%;
 }
 
 .chef-content {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: calc(100% - 80px);
-}
 
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.chef-gallery-container {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+}
 .chef-image {
-  width: 35%;
+  width: 70%;
   height: auto;
   transform: rotate(7.5deg);
   border: 5px solid white;
   box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.249);
 }
-.chef-details {
-  width: 40%;
+
+@media screen and (max-width: 2200px) {
+  .chef-image {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .chef-image {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .chef-title {
+    font-size: calc(var(--fs) + 15px);
+    padding-bottom: 10px;
+  }
+  .chef-image {
+    width: 90%;
+  }
+  .chef-details p {
+    font-size: calc(var(--fs));
+    line-height: calc(var(--fs) + 6px);
+    width: 80%;
+    padding-bottom: 20px;
+  }
+  .chef-details .chef-book-now {
+    font-size: calc(var(--fs) - 1px);
+    border: 1px solid white;
+  }
+}
+@media screen and (max-width: 900px) {
+  .chef-content {
+    flex-direction: column;
+    width: 100%;
+  }
+  .chef-title {
+    font-size: calc(var(--fs) + 15px);
+    padding-bottom: 10px;
+  }
+  .chef-details {
+    width: 90%;
+    height: 45%;
+  }
+  .chef-details p {
+    font-size: calc(var(--fs) - 2px);
+    line-height: calc(var(--fs) + 3px);
+    width: 80%;
+    padding-bottom: 20px;
+  }
+  .chef-details .chef-book-now {
+    font-size: calc(var(--fs) - 1px);
+    border: 1px solid white;
+  }
+  .chef-image {
+    width: 110%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .chef-image {
+    width: 120%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .chef-image {
+    width: 130%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .chef-image {
+    width: 140%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .chef-details {
+    width: 90%;
+    height: 50%;
+  }
+  .chef-details p {
+    font-size: calc(var(--fs) - 2px);
+    line-height: calc(var(--fs) + 2px);
+    width: 100%;
+  }
+  .chef-image {
+    width: 150%;
+  }
+  .chef-details .chef-book-now {
+    font-size: calc(var(--fs) - 2px);
+    border: 1px solid white;
+  }
 }

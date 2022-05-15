@@ -3,6 +3,7 @@ import chef from "../images/chef.svg";
 import house from "../images/house.svg";
 import beach from "../images/beach.svg";
 import { HashLink } from "react-router-hash-link";
+import { WindupChildren, Pace, Pause, Effect } from "windups";
 import "../styles/offers.css";
 
 const cards = [
@@ -16,7 +17,7 @@ const cards = [
 
   {
     image: beach,
-    title: "Amazing attractions",
+    title: "Attractions",
     details:
       "Located in the heart of Senegal, you will find many great adventures nearby, such as the beach which is in walking distance.",
     link: "/#attractions"
@@ -34,12 +35,30 @@ const Offers = () => {
   return (
     <div className="offers-container">
       <div className="offers-intro">
-        <h2>Why Choose</h2>
-        <h1>Dakar AirBnB</h1>
-        <p>
+        <h2>
+          <WindupChildren>
+            <Pace ms={40}>Why Choose</Pace>
+          </WindupChildren>
+        </h2>
+        <h1>
           {" "}
-          We have a superb selection of exotic, unusual properties that are hard
-          to categorize but which are undoubtedly distinct and pleasant.
+          <WindupChildren>
+            <Pace ms={40}>
+              {" "}
+              <Pause ms={600} />
+              Samb AirBnB
+            </Pace>
+          </WindupChildren>
+        </h1>
+        <p>
+          <WindupChildren>
+            <Pace ms={20}>
+              {" "}
+              <Pause ms={1200} />
+              We offer a beautiful villa in a desirable neighborhood in Dakar,
+              Senegal that will make your visit confortable and unforgetable.
+            </Pace>
+          </WindupChildren>
         </p>
       </div>
       <div className="card-container">
