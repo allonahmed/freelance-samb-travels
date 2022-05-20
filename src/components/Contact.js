@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 
 const Contact = () => {
   const [errorMessage, setError] = useState("");
+  const [sent, setSent] = useState(null);
   const [toSend, setToSend] = useState({
     user_name: "",
     user_email: "",
@@ -47,10 +48,10 @@ const Contact = () => {
         process.env.REACT_APP_PUBLIC_KEY
       )
         .then((response) => {
-          console.log("SUCCESS!", response.status, response.text);
+          setSent(true);
         })
         .catch((err) => {
-          console.log("FAILED...", err);
+          setSent(false);
         });
     }
   };
@@ -156,7 +157,7 @@ const Contact = () => {
                   />
                 </div>
                 <button className="submit-form" onClick={SendEmail}>
-                  Send Email
+                  {sent ? (sent === true ? "Sent" : "Failed") : "Send Email"}
                 </button>
               </div>
             </form>

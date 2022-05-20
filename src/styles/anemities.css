@@ -98,8 +98,8 @@
   color: rgb(31, 31, 31);
   transition: transform 0.5s linear;
 }
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
+.anemities-swiper .swiper-button-next:hover,
+.anemities-swiper .swiper-button-prev:hover {
   color: black;
   transform: scale(1.1);
 }

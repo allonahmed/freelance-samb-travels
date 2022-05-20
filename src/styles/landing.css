@@ -179,7 +179,7 @@
 .mySwiper {
   position: fixed !important;
   top: 0px;
-  background-color: rgba(0, 0, 0, 0.796);
+  background-color: rgba(0, 0, 0, 0.9);
   left: 0;
   height: calc(100vh);
   width: 100%;
@@ -197,9 +197,11 @@
 
 .mySwiper .swiper-slide img {
   width: 80%;
-  height: 80%;
-  object-fit: cover;
+  height: auto;
+  max-height: 95vh;
+  object-fit: fill;
   border: 5px solid white;
+  z-index: 300;
 }
 .mySwiper .swiper-button-next,
 .mySwiper .swiper-button-prev {
@@ -232,8 +234,44 @@
   .landing-content {
     width: 70%;
   }
+  .mySwiper .swiper-button-next,
+  .mySwiper .swiper-button-prev {
+    color: white !important;
+    margin: 0 0%;
+  }
 }
-
+@media only screen and (max-width: 900px) {
+  .mySwiper .swiper-slide img {
+    width: 95%;
+    max-height: 60%;
+  }
+  .mySwiper {
+    flex-direction: column !important;
+  }
+  .mySwiper .swiper-wrapper,
+  .swiper-slide {
+  }
+  .mySwiper .swiper-button-next:after,
+  .mySwiper .swiper-button-prev:after {
+    color: white !important;
+    margin: 0 0%;
+    width: 0;
+    height: 0;
+    position: fixed !important;
+    transform: rotate(90deg);
+    left: calc(50% + 20px);
+  }
+  .mySwiper .swiper-button-next:hover:after,
+  .mySwiper .swiper-button-prev:hover:after {
+    transform: rotate(90deg) scale(1.05);
+  }
+  .mySwiper .swiper-button-next:after {
+    bottom: 40px !important;
+  }
+  .mySwiper .swiper-button-prev:after {
+    top: 40px !important;
+  }
+}
 @media only screen and (max-width: 800px) {
   .landing-slide-container {
     height: 75vh;

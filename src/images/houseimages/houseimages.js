@@ -13,7 +13,8 @@ import house12 from "./house12.jpg";
 import house13 from "./house13.jpg";
 import house14 from "./house14.jpg";
 import house15 from "./house15.jpg";
-
+import house16 from "./house16.jpg";
+// import housevid1 from "./housevid1.mov";
 export {
   house1,
   house2,
@@ -29,5 +30,7 @@ export {
   house12,
   house13,
   house14,
-  house15
+  house15,
+  house16
+  // housevid1
 };

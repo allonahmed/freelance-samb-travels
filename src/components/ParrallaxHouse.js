@@ -1,9 +1,5 @@
-import { DisplaySettings } from "@mui/icons-material";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Parallax } from "react-parallax";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards } from "swiper";
-import HouseGallery from "./HouseGallery";
 import background from "../images/backgroundgallery.jpg";
 import "../styles/housegallery.css";
 import LandingGallery from "./landing/LandingGallery";
@@ -15,18 +11,18 @@ import {
   house5,
   house6,
   house7,
-  house8,
   house9,
   house10,
   house11,
   house12,
   house13,
   house14,
-  house15
+  house15,
+  house16
 } from "../images/houseimages/houseimages";
 import { PortalWithState } from "react-portal";
-import "swiper/css";
-import "swiper/css/effect-cards";
+import ReactPlayer from "react-player";
+import getWindowDimensions from "../assets/windowDimensions";
 import { Link } from "react-router-dom";
 
 const images = [
@@ -37,14 +33,14 @@ const images = [
   house5,
   house6,
   house7,
-  house8,
   house9,
   house10,
   house11,
   house12,
   house13,
   house14,
-  house15
+  house15,
+  house16
 ];
 
 const r1 = parseInt(Math.random() * (14 - 1) + 1);
@@ -56,6 +52,9 @@ const r5 = parseInt(Math.random() * (14 - 1) + 1);
 const ParallaxHouse = () => {
   const [hovered, setHovered] = useState(false);
   const [open, setOpen] = useState(0);
+  const { width, height } = getWindowDimensions();
+  console.log(width);
+
   return (
     <div className="house-container" id="house">
       <Parallax strength={300} bgImage={background}>
@@ -125,7 +124,11 @@ const ParallaxHouse = () => {
                       View Gallery
                     </div>
                     {portal(
-                      <LandingGallery onClose={closePortal} gallery={images} />
+                      <LandingGallery
+                        onClose={closePortal}
+                        gallery={images}
+                        width={width}
+                      />
                     )}
                   </React.Fragment>
                 )}
@@ -144,6 +147,7 @@ const ParallaxHouse = () => {
                 Ouest) which is 14 mins. On the east side ( la Corniche Est )
                 you have the centre of the city which is 13 minutes away by car.
               </p>
+
               <Link to="/book" className="house-book-now">
                 Book Now
               </Link>

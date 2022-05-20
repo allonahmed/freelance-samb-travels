@@ -42,7 +42,7 @@ const Attractions = () => {
     <div className="attractions-container" id="attractions">
       <div className="attractions-header">
         <h5>Explore</h5>
-        <h2>Dakar Senegal</h2>
+        <h2>Dakar, Senegal</h2>
         <p>
           While you enjoy your stay with us, there is a ton of attractions in
           the area you can check out. We even offer tour guides to assist you in

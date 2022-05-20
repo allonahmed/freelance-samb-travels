@@ -30,7 +30,7 @@ const Landing = () => {
     const landing = document.getElementById("landing");
     const dark = document.getElementById("darken");
     if (open) {
-      dark.style.backgroundColor = "rgba(0,0,0,.7)";
+      dark.style.backgroundColor = "rgba(0,0,0,.9)";
       dark.style.zIndex = "101";
       landing.style.filter = "grayscale(90%)";
     } else {

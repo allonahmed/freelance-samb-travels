@@ -127,6 +127,29 @@
 .last {
   cursor: pointer;
 }
+.small-gallery-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* min-height: 100vh; */
+  width: 100%;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.9);
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.small-gallery-image {
+  width: 90%;
+  height: auto;
+  margin: 0 20px;
+  border: 2px solid white;
+  max-height: 95%;
+  object-fit: fill;
+  border: 5px solid white;
+  z-index: 300;
+}
 
 @media screen and (max-width: 2200px) {
   .home-slider-image {
@@ -136,6 +159,15 @@
 @media screen and (max-width: 1600px) {
   .home-slider-image {
     width: 85%;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .house-container .lighten .house-info p {
+    font-size: calc(var(--fs));
+    line-height: calc(var(--fs) + 5px);
+  }
+  .house-container h2 {
+    font-size: calc(var(--fs) + 15px);
   }
 }
 @media screen and (max-width: 900px) {

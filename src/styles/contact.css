@@ -4,6 +4,7 @@
   background: #000;
   align-items: center;
   justify-content: center;
+  align-items: center;
   background-size: cover;
   object-fit: fill;
   margin-top: 10vh;
@@ -51,50 +52,38 @@
 }
 .about-item {
   display: flex;
-  justify-content: center;
-  width: 90%;
+  /* justify-content: center; */
+  margin-left: 50%;
+  width: 100%;
   height: 90px;
-  padding: 10px 0;
+  /* padding: 10px 0; */
   align-items: center;
 }
 .about-content {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  /* width: 60%; */
   padding: 10px;
 }
 .about-title {
-  font-size: 18px;
+  font-size: calc(var(--fs));
   text-shadow: 0 0 8px black;
   display: flex;
   padding: 5px 0;
 }
 .about-description {
   display: flex;
-  padding: 5px 0;
+  /* padding: 5px 0; */
   color: white;
+  font-size: calc(var(--fs));
 }
 .about-icon {
-  width: 40%;
+  /* width: 40%; 
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; */
   padding: 10px;
 }
 
-iframe {
-  height: 20%;
-  width: 70%;
-  margin: 10%;
-  /* border-radius: 15px; */
-  border: 2px solid white;
-  box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.305);
-  opacity: 0.8;
-  background-color: none;
-}
-iframe:hover {
-  opacity: 1;
-  box-shadow: -2px -2px 8px 1px rgba(0, 0, 0, 0.305);
-}
 .contact-form {
   width: 50%;
   height: 100%;
@@ -110,6 +99,7 @@ iframe:hover {
   width: 1px;
   background-color: white;
   left: 0;
+
   position: absolute;
 }
 
@@ -168,43 +158,86 @@ textarea {
   font-family: "Roboto", Cambria, Cochin, Georgia, Times, "Times New Roman",
     serif;
   margin-top: 20px;
-  font-size: 26px;
-  border: none;
+  font-size: 1.5vw;
+  border: 1px solid white;
   background: none;
   color: white;
   text-shadow: 0 0 4px rgb(3, 3, 3);
   position: relative;
-  padding: 5px;
-  border-radius: 15px;
-  overflow: hidden;
+  padding: 5px 10px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: transform 0.3s linear;
 }
 
-.submit-form::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: white;
-  opacity: 1;
-  transition: opacity 300ms, transform 300ms;
+.submit-form:hover {
+  transform: scale(1.05);
 }
-.submit-form:hover::after {
-  animation: underlineButton 2s linear infinite;
+
+@media only screen and (max-width: 1600px) {
+  .about-item {
+    /* min-width: 60%; */
+  }
 }
-@keyframes underlineButton {
-  0% {
-    transform: translate3d(-100%, 0, 0);
+@media only screen and (max-width: 1400px) {
+  .contact-form .section {
+    width: 70%;
   }
-  33% {
-    transform: translate3d(100%, 0, 0);
+}
+@media only screen and (max-width: 1050px) {
+  .contact-page {
+    margin-top: 0vh;
+    height: 120vh;
   }
-  67% {
-    transform: translate3d(0, 0, 0);
+  .contact-page .lighten {
+    height: 120vh;
   }
-  100% {
-    transform: translate3d(-100%, 0, 0);
+  .contact-container {
+    flex-direction: column;
+    height: 90%;
+    width: 90%;
+  }
+  .map-container,
+  .contact-form {
+    width: 80%;
+    height: 50%;
+  }
+  .contact-form::after {
+    height: 1px;
+    width: 70%;
+    background-color: white;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 0;
+  }
+  .submit-form {
+    font-size: calc(var(--fs) - 1px);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .about-item {
+    margin-left: 40%;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .about-item {
+    margin-left: 30%;
+  }
+  .contact-page {
+    margin-top: 0vh;
+    height: 150vh;
+  }
+  .contact-page .lighten {
+    height: 150vh;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .about-item {
+    margin-left: 20%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .about-item {
+    margin-left: 10%;
   }
 }
