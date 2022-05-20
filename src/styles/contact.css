@@ -230,6 +230,9 @@ textarea {
   .contact-page .lighten {
     height: 150vh;
   }
+  .contact-form {
+    width: 90%;
+  }
 }
 @media only screen and (max-width: 600px) {
   .about-item {
