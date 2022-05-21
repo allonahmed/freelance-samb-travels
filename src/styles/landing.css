@@ -195,7 +195,8 @@
   /* position: relative !important; */
 }
 
-.mySwiper .swiper-slide img {
+.mySwiper .swiper-slide img,
+video {
   width: 80%;
   height: auto;
   max-height: 95vh;
@@ -221,7 +222,12 @@
 .close-icon:hover {
   transform: scale(1.1) !important;
 }
-
+.react-player {
+  z-index: 400;
+  border: 2px solid white;
+  height: 60%;
+  width: 80%;
+}
 @media only screen and (max-width: 1200px) {
   .info {
     font-size: calc(var(--fs) + 1px);
@@ -241,7 +247,8 @@
   }
 }
 @media only screen and (max-width: 900px) {
-  .mySwiper .swiper-slide img {
+  .mySwiper .swiper-slide img,
+  video {
     width: 95%;
     max-height: 60%;
   }

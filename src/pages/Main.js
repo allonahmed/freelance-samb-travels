@@ -8,6 +8,7 @@ import HouseGallery from "../components/HouseGallery";
 import PersonalChef from "../components/PersonalChef";
 import Attractions from "../components/Attractions";
 import Contact from "../components/Contact";
+import video1 from "../images/houseimages/housevid1.mp4";
 
 function Main() {
   return (

@@ -2,11 +2,14 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { Close } from "@mui/icons-material";
-import ReactPlayer from "react-player/youtube";
+import ReactPlayer from "react-player";
 import landingHouse from "../../images/landinghouse.jpg";
 import heroImage from "../../images/landingdemo.jpg";
 import demoHills from "../../images/demohills.jpg";
-
+import video1 from "../../images/houseimages/housevid1.mp4";
+import video2 from "../../images/houseimages/housevid2.mp4";
+import floor1 from "../../images/floor1.jpg";
+import floor2 from "../../images/floor2.jpg";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -25,24 +28,20 @@ const LandingGallery = ({ onClose, gallery, width }) => {
     >
       <Close className="close-icon" onClick={onClose} />
       <SwiperSlide>
-        <ReactPlayer url={"https://youtu.be/sFLLN-LiEFE"} controls={true} />
+        <video controls poster={floor1}>
+          <source src={video1} type="video/mp4"></source>
+        </video>
       </SwiperSlide>
-
       <SwiperSlide>
-        <ReactPlayer
-          url={"https://youtu.be/EbRsfUAThgY"}
-          controls={true}
-          lght
-        />
+        {/* <ReactPlayer autoplay={true} url={video1} controls={true} /> */}
+        <video controls poster={floor2}>
+          <source src={video2} type="video/mp4"></source>
+        </video>
       </SwiperSlide>
       {gallery.map((image, id) => {
         return (
           <SwiperSlide key={id}>
-            {image === "/static/media/housevid1.4de535a5147298c46b63.mov" ? (
-              <ReactPlayer url={image} controls={true} />
-            ) : (
-              <img src={image} alt={`landing page galllery photo ${id + 1}`} />
-            )}
+            {<img src={image} alt={`landing page galllery photo ${id + 1}`} />}
           </SwiperSlide>
         );
       })}

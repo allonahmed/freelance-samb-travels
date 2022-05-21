@@ -18,7 +18,9 @@ import {
   house13,
   house14,
   house15,
-  house16
+  house16,
+  housevid1
+  // housevid2
 } from "../images/houseimages/houseimages";
 import { PortalWithState } from "react-portal";
 import ReactPlayer from "react-player";
@@ -40,7 +42,9 @@ const images = [
   house13,
   house14,
   house15,
-  house16
+  house16,
+  housevid1
+  // housevid2
 ];
 
 const r1 = parseInt(Math.random() * (14 - 1) + 1);
