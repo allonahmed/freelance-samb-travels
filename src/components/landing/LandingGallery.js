@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { Close } from "@mui/icons-material";
@@ -8,8 +8,6 @@ import video2 from "../../images/houseimages/SecondFloor.mov";
 
 import "swiper/css";
 import "swiper/css/navigation";
-
-// const images = [landingHouse, heroImage, demoHills];
 
 const LandingGallery = ({ onClose, gallery, width }) => {
   return (
