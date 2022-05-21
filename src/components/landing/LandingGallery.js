@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { Close } from "@mui/icons-material";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/youtube";
 import landingHouse from "../../images/landinghouse.jpg";
 import heroImage from "../../images/landingdemo.jpg";
 import demoHills from "../../images/demohills.jpg";
@@ -24,6 +24,17 @@ const LandingGallery = ({ onClose, gallery, width }) => {
       direction={width > 900 ? "horizontal" : "vertical"}
     >
       <Close className="close-icon" onClick={onClose} />
+      <SwiperSlide>
+        <ReactPlayer url={"https://youtu.be/sFLLN-LiEFE"} controls={true} />
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <ReactPlayer
+          url={"https://youtu.be/EbRsfUAThgY"}
+          controls={true}
+          lght
+        />
+      </SwiperSlide>
       {gallery.map((image, id) => {
         return (
           <SwiperSlide key={id}>
