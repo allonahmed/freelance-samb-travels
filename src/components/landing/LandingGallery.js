@@ -1,20 +1,17 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { Close } from "@mui/icons-material";
 
-import video1 from "../../images/houseimages/housevid1.mp4";
-import video2 from "../../images/houseimages/housevid2.mp4";
-import floor1 from "../../images/floor1.jpg";
-import floor2 from "../../images/floor2.jpg";
+import video1 from "../../images/houseimages/FirstFloor.mov";
+import video2 from "../../images/houseimages/SecondFloor.mov";
+
 import "swiper/css";
 import "swiper/css/navigation";
 
 // const images = [landingHouse, heroImage, demoHills];
 
 const LandingGallery = ({ onClose, gallery, width }) => {
-  console.log(gallery);
-
   return (
     <Swiper
       navigation={true}
@@ -25,13 +22,13 @@ const LandingGallery = ({ onClose, gallery, width }) => {
     >
       <Close className="close-icon" onClick={onClose} />
       <SwiperSlide>
-        <video controls poster={floor1}>
-          <source src={video1} type="video/mp4"></source>
+        <video autoPlay={true} loop={true} controls={true} playsInline muted>
+          <source src={video1} type="video/mp4" />
         </video>
       </SwiperSlide>
       <SwiperSlide>
-        <video controls poster={floor2}>
-          <source src={video2} type="video/mp4"></source>
+        <video loop={true} controls={true} playsInline muted>
+          <source src={video2} type="video/mp4" />
         </video>
       </SwiperSlide>
       {gallery.map((image, id) => {
