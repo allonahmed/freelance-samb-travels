@@ -3,23 +3,22 @@ import { Parallax } from "react-parallax";
 import background from "../images/backgroundgallery.jpg";
 import "../styles/housegallery.css";
 import LandingGallery from "./landing/LandingGallery";
-import {
-  house1,
-  house2,
-  house3,
-  house4,
-  house5,
-  house6,
-  house7,
-  house9,
-  house10,
-  house11,
-  house12,
-  house13,
-  house14,
-  house15,
-  house16
-} from "../images/houseimages/houseimages";
+import house1 from "../images/houseimages/house1.jpg";
+import house2 from "../images/houseimages/house2.jpg";
+import house3 from "../images/houseimages/house3.jpg";
+import house4 from "../images/houseimages/house4.jpg";
+import house5 from "../images/houseimages/house5.jpg";
+import house6 from "../images/houseimages/house6.jpg";
+import house7 from "../images/houseimages/house7.jpg";
+import house8 from "../images/houseimages/house8.jpg";
+import house9 from "../images/houseimages/house9.jpg";
+import house10 from "../images/houseimages/house10.jpg";
+import house11 from "../images/houseimages/house11.jpg";
+import house12 from "../images/houseimages/house12.jpg";
+import house13 from "../images/houseimages/house13.jpg";
+import house14 from "../images/houseimages/house14.jpg";
+import house15 from "../images/houseimages/house15.jpg";
+import house16 from "../images/houseimages/house16.jpg";
 import { PortalWithState } from "react-portal";
 import getWindowDimensions from "../assets/windowDimensions";
 import { Link } from "react-router-dom";
@@ -32,6 +31,7 @@ const images = [
   house5,
   house6,
   house7,
+
   house9,
   house10,
   house11,
@@ -42,11 +42,11 @@ const images = [
   house16
 ];
 
-const r1 = parseInt(Math.random() * (14 - 1) + 1);
-const r2 = parseInt(Math.random() * (14 - 1) + 1);
-const r3 = parseInt(Math.random() * (14 - 1) + 1);
-const r4 = parseInt(Math.random() * (14 - 1) + 1);
-const r5 = parseInt(Math.random() * (14 - 1) + 1);
+const r1 = parseInt(Math.random() * (15 - 1) + 1);
+const r2 = parseInt(Math.random() * (15 - 1) + 1);
+const r3 = parseInt(Math.random() * (15 - 1) + 1);
+const r4 = parseInt(Math.random() * (15 - 1) + 1);
+const r5 = parseInt(Math.random() * (15 - 1) + 1);
 
 const ParallaxHouse = () => {
   const [hovered, setHovered] = useState(false);
