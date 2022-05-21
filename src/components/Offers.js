@@ -9,7 +9,7 @@ import "../styles/offers.css";
 const cards = [
   {
     image: house,
-    title: "Luxary Villa",
+    title: "Luxury Villa",
     details:
       "Our luxorious, two story home is equipped with an open kitchen, media room, and patio in the heart of Senegal.",
     link: "/#home"
