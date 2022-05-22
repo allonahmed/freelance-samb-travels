@@ -20,14 +20,26 @@ const LandingGallery = ({ onClose, gallery, width }) => {
     >
       <Close className="close-icon" onClick={onClose} />
       <SwiperSlide>
-        <video autoPlay={true} loop={true} controls={true} playsInline muted>
-          <source src={video1} type="video/mp4" />
-        </video>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/EbRsfUAThgY"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </SwiperSlide>
       <SwiperSlide>
-        <video loop={true} controls={true} playsInline muted>
-          <source src={video2} type="video/mp4" />
-        </video>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/sFLLN-LiEFE"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </SwiperSlide>
       {gallery.map((image, id) => {
         return (
