@@ -16,6 +16,7 @@ const corsOptions = {
   methods: ["GET", "POST"],
   optionSuccessStatus: 200
 };
+
 app.use(cors(corsOptions));
 
 const db = mysql.createConnection({
