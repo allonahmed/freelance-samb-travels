@@ -136,9 +136,8 @@ const CartSummary = ({ position, small }) => {
                   {option.id === 6 ? (
                     <div className="selected-room-numbers">
                       {" "}
-                      {`$${getRoomPrice()} per day (${
-                        data.dayCount
-                      } days)`}{" "}
+                      {`$${getRoomPrice()} per day (${data.dayCount
+                        } days)`}{" "}
                     </div>
                   ) : (
                     <div className="selected-numbers">
