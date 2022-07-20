@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 const corsOptions = {
-  origin: "https://precious-hotteok-a1a8fa.netlify.app",
+  origin: "https://sambtravels.com",
   credentials: true, //access-control-allow-credentials:true
   methods: ["GET", "POST"],
   optionSuccessStatus: 200
