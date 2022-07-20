@@ -69,6 +69,9 @@ const Orders = ({ active }) => {
           className="react-select-component"
           maxMenuHeight={200}
           classNamePrefix="react-select"
+          onKeyDown={(event) => {
+            event.preventDefault();
+          }}
           theme={(theme) => ({
             ...theme,
             borderRadius: "5px",

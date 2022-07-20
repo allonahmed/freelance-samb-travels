@@ -3,9 +3,24 @@
   width: 30vw;
   height: calc(100vh - 75px);
   position: relative;
+}
+.small-cart {
+  /* padding-top: 100px; */
+  position: fixed;
+  height: calc(100vh - 75px);
+  top: 75px;
+
+  border: 1px solid black;
+
+  /* bottom: calc(env(safe-area-inset-bottom) + 100px); */
   display: flex;
   flex-direction: column;
   color: rgba(0, 0, 0, 0.8);
+  background-color: #f8f8f8;
+  z-index: 10;
+  width: 100vw;
+  padding: 0 10px;
+  overflow-y: auto;
 }
 .cart-container h2 {
   width: 100%;
@@ -24,7 +39,7 @@
   left: -4vw;
   transform: translate(-50%, -50%);
 }
-.cart-container .order-container {
+.order-container {
   display: flex;
   flex-direction: column;
   align-items: space-between;
@@ -92,13 +107,13 @@
   font-size: 14px;
 }
 .selected-room-numbers {
-  font-size: 16px;
+  font-size: 14px;
 }
 .counter-buttons {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 3px;
-  font-size: 18px;
+  font-size: 15px;
   border: none;
   background: #eff2f7;
   border: 1px solid rgba(128, 128, 128, 0.331);
@@ -108,14 +123,14 @@
   opacity: 0.7;
 }
 .selected-per-container {
-  font-size: 15px;
+  font-size: 14px;
   padding: 0 5px;
 }
 .selected-price {
-  font-size: 16px;
+  font-size: 14px;
 }
 .selected-total {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .discount-container {
@@ -197,4 +212,17 @@
   justify-content: space-between;
   padding-bottom: 5px;
   opacity: 0.8;
+}
+
+@media only screen and (max-width: 1500px) {
+  .cart-container {
+    width: 40vw;
+  }
+  .selected-image {
+    height: 75px;
+    width: 100px;
+  }
+  .cart-container::before {
+    left: -2.5vw;
+  }
 }

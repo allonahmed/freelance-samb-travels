@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import validator from "validator";
 import Header from "../components/header/Header";
 import BookingSteps from "../components/booking/BookingSteps";
@@ -11,11 +11,22 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateError, updateActiveForm } from "../redux/reducers";
 import StripeContainer from "../components/booking/StripeContainer";
 import SmallHeader from "../components/header/SmallHeader";
+import useWindowDimensions from "../assets/windowDimensions";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Book = () => {
   const data = useSelector((state) => state.reduxStore);
   const dispatch = useDispatch();
   // console.log(data);
+  const { width, height } = useWindowDimensions();
+  const [openCart, setCart] = useState(false);
+  console.log(width);
+
+  useEffect(() => {
+    setCart(false);
+  }, [width]);
 
   const nextClick = async () => {
     if (data.activeForm === 1) {
@@ -24,6 +35,10 @@ const Book = () => {
         dispatch(updateError(null));
       } else {
         dispatch(updateError("All fields required"));
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
       }
     } else if (data.activeForm === 2) {
       dispatch(updateActiveForm(data.activeForm + 1));
@@ -37,6 +52,10 @@ const Book = () => {
         }
       } else {
         dispatch(updateError("All fields required"));
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
       }
     }
   };
@@ -52,20 +71,36 @@ const Book = () => {
 
       <div className="booking-content">
         <div className="book-container">
-          <div className="form-options">
-            <BookingSteps active={data.activeForm} />
-            <AddOns active={data.activeForm} />
-            <Orders active={data.activeForm} />
-            <StripeContainer active={data.activeForm} />
-          </div>
+          {openCart ? (
+            <CartSummary position="absolute" small={true} />
+          ) : (
+            <div className="form-options" id="form">
+              <BookingSteps active={data.activeForm} />
+              <AddOns active={data.activeForm} />
+              <Orders active={data.activeForm} />
+              <StripeContainer active={data.activeForm} />
+            </div>
+          )}
           <div className="controls">
+            {width <= 1000 && (
+              <div
+                onClick={() => setCart(!openCart)}
+                className="open-cart-container"
+              >
+                <button className="controls-button">
+                  {openCart ? "close" : "open"} cart{" "}
+                  <ShoppingCartIcon sx={{ height: "15px", color: "white" }} />
+                </button>
+              </div>
+            )}
+
             <div
               className="controls-container"
-              style={
-                data.activeForm === 1
-                  ? { justifyContent: "flex-end" }
-                  : { justifyContent: "space-between" }
-              }
+              style={{
+                display: openCart ? "none" : "flex",
+                justifyContent:
+                  data.activeForm === 1 ? "flex-end" : "space-between"
+              }}
             >
               <button
                 style={
@@ -84,7 +119,7 @@ const Book = () => {
             </div>
           </div>
         </div>
-        <CartSummary />
+        {width > 1000 && <CartSummary position="relative" small={false} />}
       </div>
     </div>
   );

@@ -10,10 +10,11 @@ import {
 
 import { useSelector, useDispatch } from "react-redux";
 import { updateATVCount, updateAddOns } from "../../redux/reducers";
-import { Check, Add } from "@mui/icons-material";
+import { Check, Add, Close } from "@mui/icons-material";
 
 const AddOns = ({ active }) => {
   const [chefCount, setChefCount] = useState(0);
+  const [imageHover, setImageHover] = useState(0);
   const data = useSelector((state) => state.reduxStore);
   const dispatch = useDispatch();
 
@@ -25,6 +26,7 @@ const AddOns = ({ active }) => {
     data.safari,
     data.renaissance
   ];
+
   return (
     <div
       className="form add-on-form"
@@ -36,6 +38,57 @@ const AddOns = ({ active }) => {
         return (
           <div className="sub-container" key={id}>
             <img className="add-on-image" src={add.img} alt="kitchen add on" />
+            <div className="add-on-small">
+              <img src={add.img} />
+              <div
+                className="image-filter"
+                style={
+                  options[id]
+                    ? { transform: "translateX(-150px)" }
+                    : { transform: "translateY(0)" }
+                }
+              ></div>
+              <div
+                className="add-on-checked"
+                style={
+                  !options[id]
+                    ? { transform: "translateX(150px)" }
+                    : { transform: "translateY(0)" }
+                }
+                onMouseEnter={() => setImageHover(true)}
+              >
+                <h2>Added</h2>
+              </div>
+              <div
+                className="add-on-small-add"
+                style={
+                  !options[id]
+                    ? {
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)"
+                      }
+                    : {
+                        top: "5px",
+                        left: "unset",
+                        right: "5px",
+                        transform: "translate(0,0)"
+                      }
+                }
+              >
+                {!options[id] ? (
+                  <Add
+                    className="add-on-add-button"
+                    onClick={() => dispatch(updateAddOns(id))}
+                  />
+                ) : (
+                  <Close
+                    className="add-on-add-exit"
+                    onClick={() => dispatch(updateAddOns(id))}
+                  />
+                )}
+              </div>
+            </div>
             <div className="add-on-details">
               <div className="add-on-description">
                 <div className="add-on-title">{add.title}</div>

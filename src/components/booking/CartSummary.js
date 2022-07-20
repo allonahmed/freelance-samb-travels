@@ -19,7 +19,7 @@ import {
 } from "../../images/images";
 import { Close } from "@mui/icons-material";
 
-const CartSummary = () => {
+const CartSummary = ({ position, small }) => {
   const data = useSelector((state) => state.reduxStore);
   const dispatch = useDispatch();
 
@@ -117,7 +117,7 @@ const CartSummary = () => {
   }, [data]);
 
   return (
-    <div className="cart-container">
+    <div className={small ? "small-cart" : "cart-container"}>
       <h2>Order Summary</h2>
       <div className="order-container">
         {filteredOptions.length === 0 ? (

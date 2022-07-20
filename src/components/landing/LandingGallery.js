@@ -21,8 +21,6 @@ const LandingGallery = ({ onClose, gallery, width }) => {
       <Close className="close-icon" onClick={onClose} />
       <SwiperSlide>
         <iframe
-          width="560"
-          height="315"
           src="https://www.youtube.com/embed/EbRsfUAThgY"
           title="YouTube video player"
           frameborder="0"
@@ -32,8 +30,6 @@ const LandingGallery = ({ onClose, gallery, width }) => {
       </SwiperSlide>
       <SwiperSlide>
         <iframe
-          width="560"
-          height="315"
           src="https://www.youtube.com/embed/sFLLN-LiEFE"
           title="YouTube video player"
           frameborder="0"

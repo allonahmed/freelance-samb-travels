@@ -12,7 +12,7 @@ const cards = [
     title: "Luxury Villa",
     details:
       "Our luxorious, two story home is equipped with an open kitchen, media room, and patio in the heart of Senegal.",
-    link: "/#home"
+    link: "/#house"
   },
 
   {

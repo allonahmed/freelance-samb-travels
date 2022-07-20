@@ -4,7 +4,7 @@ import { Parallax } from "react-parallax";
 import bgcook from "../images/bgcook.jpg";
 
 import "../styles/chef.css";
-import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 const PersonalChef = () => {
   return (

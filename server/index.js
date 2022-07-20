@@ -136,7 +136,7 @@ app.post("/send-info", (req, res) => {
   );
 });
 
-const PORT = process.env.PORT || 6000;
+const PORT = 6001;
 app.listen(PORT, () => {
   console.log(`You are connected on port ${PORT}`);
 });
