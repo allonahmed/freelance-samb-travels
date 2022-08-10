@@ -6,6 +6,7 @@ import axios from "axios";
 import Success from "./pages/Success";
 import Main from "./pages/Main";
 import Book from "./pages/Book";
+import InvalidUrl from "./pages/InvalidUrl";
 
 import "./App.css";
 
@@ -61,6 +62,7 @@ function App() {
           }
         });
   }, [userData.paymentSuccess]);
+
   return (
     <div>
       <Routes>
@@ -72,6 +74,7 @@ function App() {
           }
         />
         <Route path={"/payment=true"} element={<Success />} />
+        <Route path={'*'} element={<InvalidUrl />} />
       </Routes>
     </div>
   );
