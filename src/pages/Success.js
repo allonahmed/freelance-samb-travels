@@ -1,18 +1,29 @@
 import React from "react";
-import SmallHeader from "../components/header/SmallHeader";
 import { Link } from "react-router-dom";
+import '../styles/paymentForm.css'
 
 const Success = () => {
   return (
     <div className="success-container">
       <div className="success-content">
-        You're purchase was successful. Check you email for you're receipt. If
-        you have any questions, email us at email@gmail.com
+        <h1>You're purchase was successful! </h1>
+        <p>Check you email for you're receipt. </p>
+        <p>
+          If you have any questions, email us at{" "}
+          <a href='mailto:allonahmed1@gmail.com' target='_blank' rel="noreferrer">email@gmail.com</a>
+        </p>
       </div>
-      {/* <Link to="/">Back to home</Link> */}
-      <button onClick={() => (window.location.href = "/")}>Back to home</button>
+      <Link to="/" style={clickable}>Back to home</Link>
     </div>
   );
 };
 
 export default Success;
+
+const clickable = {
+  backgroundColor: '#00853f',
+  color: '#fff',
+  borderRadius: 10,
+  padding: '10px 15px',
+  textDecoration: 'none'
+}
