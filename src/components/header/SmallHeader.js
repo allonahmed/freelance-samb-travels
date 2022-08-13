@@ -21,7 +21,7 @@ const SmallHeader = ({ cr, bg, border, full }) => {
           }
         >
           <ArrowBack sx={{ color: "#010101", fontSize: "18px" }} />
-          Back to Home
+          Home
         </Link>
         <Link to="/" className="logo">
           <WindupChildren>

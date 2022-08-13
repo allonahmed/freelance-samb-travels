@@ -11,7 +11,7 @@ import {
 
 import validator from "validator";
 import axios from "axios";
-
+import { LoaderSpinner } from "../Loader";
 import "../../styles/paymentForm.css";
 import { personalchef, safari } from "../../images/images";
 
@@ -41,6 +41,7 @@ const Form = () => {
   const elements = useElements();
   const userData = useSelector((state) => state.reduxStore);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   const star = (
     <span
@@ -70,6 +71,7 @@ const Form = () => {
   // console.log((userData.priceTaxed * 100).toFixed(2));
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log("Validating information:");
     // await formValidate();
 
@@ -87,15 +89,11 @@ const Form = () => {
           {
             amount: parseInt(userData.priceTaxed * 100),
             id,
-            description: `Customer Name: ${userData.fullName}, Email Address: ${
-              userData.emailAddress
-            }, Phone Number: ${userData.phoneNumber}, Room Count: ${
-              userData.roomCount
-            }, Guest Count: ${userData.guestCount}, Day Count: ${
-              userData.dayCount
-            },Check In: ${userData.checkIn}, Check Out: ${
-              userData.checkOut
-            }, Amount Paid: ${userData.price * 0.07 + userData.price} `
+            description: `Customer Name: ${userData.fullName}, Email Address: ${userData.emailAddress
+              }, Phone Number: ${userData.phoneNumber}, Room Count: ${userData.roomCount
+              }, Guest Count: ${userData.guestCount}, Day Count: ${userData.dayCount
+              },Check In: ${userData.checkIn}, Check Out: ${userData.checkOut
+              }, Amount Paid: ${userData.price * 0.07 + userData.price} `
           }
         );
         await console.log(response);
@@ -103,13 +101,17 @@ const Form = () => {
         if (response.data.success) {
           console.log("success");
           dispatch(updateSuccess(true));
+          setLoading(false);
         }
       } catch (error) {
         console.log("Error", error);
+        dispatch(updateError("Invalid card information"))
+        setLoading(false);
       }
     } else {
       console.log(error.message);
       dispatch(updateError(error.message));
+      setLoading(false);
     }
   };
 
@@ -149,13 +151,14 @@ const Form = () => {
           required
         />
       </div>
-      <form onSubmit={formValidate} style={{ width: "100%" }}>
+      <form onSubmit={formValidate} style={{ width: "100%" }} className="field">
+        <label>Card Information{star}</label>
         <fieldset className="FormGroup">
           <div className="FormRow">
             <CardElement options={CARD_OPTIONS} />
           </div>
         </fieldset>
-        <button className="payment-button">Pay ${userData.priceTaxed}</button>
+        <button className="payment-button">{loading && <LoaderSpinner height='30' width='30' />}Pay</button>
       </form>
     </div>
   );
