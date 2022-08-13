@@ -113,7 +113,14 @@ const Book = () => {
               >
                 Go Back
               </button>
-              <button className="controls-button next" onClick={nextClick}>
+              <button
+                style={
+                  data.activeForm === 3
+                    ? { display: "none" }
+                    : { display: "inline-block" }
+                }
+                className="controls-button next"
+                onClick={nextClick}>
                 Next
               </button>
             </div>
