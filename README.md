@@ -1,4 +1,4 @@
-# DakarTravels
+# SambTravels
 Freelance website for AirBnB business. Website developed for advertisement, information, and booking.
 
 Developed using ReactJS, the application is fully responsive and accessible. All design work and client development done by myself.
